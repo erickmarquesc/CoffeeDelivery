@@ -1,6 +1,6 @@
 import { MainContent, Main, HeaderSection, TitleSection } from './styles';
 import { CurrencyDollarSimple, MapPin, Timer } from 'phosphor-react';
-import { Container, Content } from '../../components/containers';
+import { Container, Content } from '../../components/Containers/containers';
 import illustration from '../../assets/Illustration.svg';
 import { useLocation } from 'react-router-dom';
 
