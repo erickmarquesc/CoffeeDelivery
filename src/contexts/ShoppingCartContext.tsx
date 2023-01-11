@@ -67,7 +67,7 @@ export function ShoppingCartContextProvider({
     const updatedCart = [...shoppingCartItems]
 
     if (ItemSelected.quantity === 0) {
-      toast.error('Selecione uma quantidade válida', { position: 'top-center' })
+      toast.error('Selecione uma quantidade válida', { position: 'top-right' })
     } else {
       const productExists = updatedCart.find(
         (coffe) => coffe.id === ItemSelected.id
@@ -76,12 +76,12 @@ export function ShoppingCartContextProvider({
       if (productExists) {
         toast.error(
           'Item já adicionado ao carrinho, atualize a quantidade no checkout!',
-          { position: 'top-center' }
+          { position: 'top-right' }
         )
       } else {
         setShoppingCartItems([...shoppingCartItems, ItemSelected])
         toast.success('Produto adicionado ao carrinho com sucesso!', {
-          position: 'top-center'
+          position: 'top-right'
         })
       }
     }
