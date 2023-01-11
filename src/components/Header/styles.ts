@@ -1,34 +1,31 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const HeaderContainer = styled.div`
+export const LocaleCartGroup = styled.div`
+  gap: 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 70rem;
-  height: 6.5rem;
-
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 193px;
-  }
+  
 `
 export const Locale = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 8.93rem;
+  gap: 4px;
   height: 2.375rem;
   border-radius: 8px;
-  color: ${(props) => props.theme['purple-500']};
-  background: ${(props) => props.theme['purple-100']};
+  align-items: center;
+  justify-content: center;
+  color: ${(props) => props.theme['purple-dark']};
+  background: ${(props) => props.theme['purple-light']};
 
   padding: 0.75rem;
 
   p {
     font-size: 0.875rem;
-    color: ${(props) => props.theme['purple-600']};
+    color: ${(props) => props.theme['purple']};
+  }
+
+  svg{
+    color: ${(props) => props.theme['purple-dark']};
   }
 `
 
@@ -37,7 +34,7 @@ export const CartButton = styled.button`
   height: 2.375rem;
   position: relative;
 
-  background: ${(props) => props.theme['yellow-100']};
+  background: ${(props) => props.theme['yellow-light']};
 
   border: none;
   border-radius: 0.5rem;
@@ -52,7 +49,7 @@ export const CartButton = styled.button`
   }
 
   .cartIcon {
-    color: ${(props) => props.theme['yellow-700']};
+    color: ${(props) => props.theme['yellow-dark']};
   }
 
   .countOfItems {
@@ -61,19 +58,19 @@ export const CartButton = styled.button`
     align-items: center;
     justify-content: center;
 
-    position: absolute;
     top: -0.5rem;
     left: 1.625rem;
+    position: absolute;
 
-    font-size: 0.75rem;
     font-weight: bold;
+    font-size: 0.75rem;
 
     width: 1.25rem;
     height: 1.25rem;
 
-    background: ${(props) => props.theme['yellow-700']};
-    color: ${(props) => props.theme.white};
     border-radius: 50%;
+    color: ${(props) => props.theme.white};
+    background: ${(props) => props.theme['yellow-dark']};
   }
 `
 
