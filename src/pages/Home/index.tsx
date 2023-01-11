@@ -1,18 +1,13 @@
-import {
-  HomeContainer,
-  TitleWrapper,
-  ServicesWrapper,
-  BoxWrapper,
-  Display
-} from "./styles";
+import { HomeContainer, TitleWrapper, ServicesWrapper, BoxWrapper, Display } from "./styles";
 import { Package, Coffee, ShoppingCart, Timer } from "phosphor-react";
-import { CoffeeCard } from "./components/CoffeeCard";
 import { ShoppingContext } from "../../contexts/ShoppingCartContext";
-import { useContext } from "react";
+import { CoffeeCard } from "./components/CoffeeCard";
 import marketingImg from '../../assets/Imagem.svg';
+import { useContext } from "react";
 
 export function Home() {
-  const { CoffeeList } = useContext(ShoppingContext)
+
+  const { CoffeeList } = useContext(ShoppingContext);
 
   return (
     <>
@@ -31,13 +26,13 @@ export function Home() {
               <section>
                 <div className="left-column">
                   <div className="cart icon">
-                    <ShoppingCart color="#FAFAFA" weight="fill" size={16} />
+                    <ShoppingCart weight="fill" size={16} />
                   </div>
                   <p>Compra simples e segura</p>
                 </div>
                 <div className="left-column">
                   <div className="timer icon">
-                    <Timer color="#FAFAFA" weight="fill" size={16} />
+                    <Timer weight="fill" size={16} />
                   </div>
                   <p>Entrega rápida e rastreada</p>
                 </div>
@@ -45,13 +40,13 @@ export function Home() {
               <section>
                 <div className="right-column">
                   <div className="package icon">
-                    <Package color="#FAFAFA" weight="fill" size={16} />
+                    <Package weight="fill" size={16} />
                   </div>
                   <p>Embalagem mantém o café intacto</p>
                 </div>
                 <div className="right-column">
                   <div className="coffee icon">
-                    <Coffee color="#FAFAFA" weight="fill" size={16} />
+                    <Coffee weight="fill" size={16} />
                   </div>
                   <p>O café chega fresquinho até você</p>
                 </div>
