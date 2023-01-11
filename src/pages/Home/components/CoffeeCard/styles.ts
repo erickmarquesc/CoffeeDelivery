@@ -11,7 +11,7 @@ export const Card = styled.div<CardProps>`
 
   height: 19.375rem;
   width: 16rem;
-  background: ${(props) => props.theme['gray-200']};
+  background: ${(props) => props.theme['base-card']};
   border-radius: 6px 36px;
   padding: 0 1.5rem;
 
@@ -28,14 +28,14 @@ export const Card = styled.div<CardProps>`
     font-weight: 700;
 
     margin-bottom: 0.5rem;
-    color: ${(props) => props.theme['gray-800']};
+    color: ${(props) => props.theme['base-title']};
   }
 
   .description {
     text-align: center;
     font-size: 0.875rem;
     margin-bottom: 2rem;
-    color: ${(props) => props.theme['gray-400']};
+    color: ${(props) => props.theme['base-text']};
   }
 
   .cartButton {
@@ -44,7 +44,7 @@ export const Card = styled.div<CardProps>`
     justify-content: center;
     width: 2.375rem;
     height: 2.375rem;
-    background: ${(props) => props.theme['purple-600']};
+    background: ${(props) => props.theme['purple-dark']};
     border: none;
     border-radius: 8px;
     margin-right: 12px;
@@ -65,8 +65,8 @@ export const TypeWrapper = styled.div`
     font-weight: bold;
     border-radius: 10px;
 
-    color: ${(props) => props.theme['yellow-500']};
-    background: ${(props) => props.theme['yellow-100']};
+    color: ${(props) => props.theme['yellow-dark']};
+    background: ${(props) => props.theme['yellow-light']};
 
     padding: 0.3rem;
   }
@@ -80,7 +80,7 @@ export const ShopContainer = styled.div`
   p {
     font-size: 0.875rem;
 
-    color: ${(props) => props.theme['gray-800']};
+    color: ${(props) => props.theme['base-title']};
     span {
       font-family: 'baloo 2', sans-serif;
       font-size: 1.5rem;
@@ -99,10 +99,10 @@ export const CounterWrapper = styled.div`
 
   border-radius: 8px;
   margin-right: 0.5rem;
-  background: ${(props) => props.theme['gray-300']};
+  background: ${(props) => props.theme['base-button']};
 
   .itemsInCart {
-    color: ${(props) => props.theme['gray-900']};
+    color: ${(props) => props.theme['base-text']};
   }
 `
 
@@ -113,13 +113,19 @@ export const CounterButton = styled.button`
 
   font-size: 0.75rem;
 
-  width: 20px;
-  height: 20px;
-  color: ${(props) => props.theme['purple-500']};
+  width: 100%;
+  height: 38px;
+  color: ${(props) => props.theme['purple-dark']};
   background: transparent;
-  border: 1px solid ${(props) => props.theme['purple-500']};
-  border-radius: 999px;
+  border: 0;
   margin: 0.5rem;
+
+  &:first-child{
+    border-radius: 6px 0 0 6px;
+  }
+  &:last-child{
+    border-radius:  0 6px 6px 0;
+  }
 
   transition: all 0.2s ease-in-out;
   &:hover {
