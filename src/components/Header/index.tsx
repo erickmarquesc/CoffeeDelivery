@@ -1,8 +1,8 @@
+import { Container, Content } from '../Containers/containers';
 import { ShoppingCartButton } from './CartButton';
 import { LocaleCartGroup } from './styles';
 import { LocaleMap } from './Locale';
 import { LogoCoffee } from './Logo';
-import { Container, Content } from '../containers';
 
 export function Header() {
 
@@ -19,5 +19,5 @@ export function Header() {
 
       </Content>
     </Container>
-  )
-}
+  );
+};

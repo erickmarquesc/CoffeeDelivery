@@ -1,6 +1,6 @@
 import { Bank, CreditCard, CurrencyDollarSimple, MapPinLine, Money } from 'phosphor-react';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { Container, Content } from '../../components/containers';
+import { Container, Content } from '../../components/Containers/containers';
 import { ShoppingCart } from './components/ShoppingCart';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';

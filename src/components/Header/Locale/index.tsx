@@ -1,5 +1,5 @@
 import { MapPin } from "phosphor-react";
-import { Locale } from "../styles";
+import { Locale } from "./styles";
 
 export function LocaleMap() {
   return (
