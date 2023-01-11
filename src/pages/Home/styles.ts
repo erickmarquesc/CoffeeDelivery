@@ -29,13 +29,13 @@ export const TitleWrapper = styled.div`
     font-weight: 900;
     font-size: 3rem;
 
-    color: ${(props) => props.theme['gray-900']};
+    color: ${(props) => props.theme['base-title']};
     margin-bottom: 1rem;
   }
 
   .subtitle {
     font-size: 1.25rem;
-    color: ${(props) => props.theme['gray-800']};
+    color: ${(props) => props.theme['base-text']};
     margin-bottom: 4.125rem;
   }
 `
@@ -45,7 +45,11 @@ export const ServicesWrapper = styled.div`
   gap: 2.5rem;
   align-items: center;
   font-size: 1rem;
-  color: ${(props) => props.theme['gray-400']};
+  color: ${(props) => props.theme['base-text']};
+
+  svg{
+    color: ${(props) => props.theme['white']};
+  }
 
   .right-column {
     display: flex;
@@ -72,19 +76,19 @@ export const ServicesWrapper = styled.div`
   }
 
   .cart {
-    background: ${(props) => props.theme['yellow-700']};
+    background: ${(props) => props.theme['yellow-dark']};
   }
 
   .timer {
-    background: ${(props) => props.theme['yellow-500']};
+    background: ${(props) => props.theme['yellow']};
   }
 
   .package {
-    background: ${(props) => props.theme['gray-800']};
+    background: ${(props) => props.theme['base-text']};
   }
 
   .coffee {
-    background: ${(props) => props.theme['purple-500']};
+    background: ${(props) => props.theme['purple-dark']};
   }
 `
 
