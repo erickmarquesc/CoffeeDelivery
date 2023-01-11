@@ -54,6 +54,10 @@ export const Card = styled.div<CardProps>`
       cursor: pointer;
       transition: 0.2s ease-in-out;
     }
+
+    svg{
+      color: ${(props)=>props.theme['white']};
+    }
   }
 `
 
