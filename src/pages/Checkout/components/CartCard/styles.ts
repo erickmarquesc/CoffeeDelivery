@@ -29,7 +29,7 @@ export const CartCoffee = styled.div<CartCoffeProps>`
     height: 1px;
     width: 23rem;
 
-    background: ${(props) => props.theme['gray-300']};
+    background: ${(props) => props.theme['green-300']};
   }
 `
 
@@ -39,7 +39,7 @@ export const MidWrapper = styled.div`
 
   .coffeTypeText {
     font-size: 1rem;
-    color: ${(props) => props.theme['gray-500']};
+    color: ${(props) => props.theme['base-title']};
   }
 
   .buttonsWrapper {
@@ -61,8 +61,8 @@ export const RemoveItemButton = styled.button`
   border-radius: 6px;
 
   font-size: 0.75rem;
-  color: ${(props) => props.theme['gray-800']};
-  background: ${(props) => props.theme['gray-300']};
+  color: ${(props) => props.theme['purple-dark']};
+  background: ${(props) => props.theme['base-button']};
 
   transition: 0.2s ease-in-out;
 
@@ -82,7 +82,7 @@ export const ProductValue = styled.div`
   margin-left: 3.125rem;
   margin-top: 0.5rem;
 
-  color: ${(props) => props.theme['gray-800']};
+  color: ${(props) => props.theme['base-subtitle']};
 `
 
 export const CounterWrapper = styled.div`
@@ -94,10 +94,10 @@ export const CounterWrapper = styled.div`
 
   border-radius: 8px;
   margin-right: 0.5rem;
-  background: ${(props) => props.theme['gray-300']};
+  background: ${(props) => props.theme['base-button']};
 
   .itemsInCart {
-    color: ${(props) => props.theme['gray-900']};
+    color: ${(props) => props.theme['purple']};
   }
 `
 
@@ -110,9 +110,9 @@ export const CounterButton = styled.button`
 
   width: 20px;
   height: 20px;
-  color: ${(props) => props.theme['purple-500']};
+  color: ${(props) => props.theme['purple']};
   background: transparent;
-  border: 1px solid ${(props) => props.theme['purple-500']};
+  border: 1px solid ${(props) => props.theme['base-text']};
   border-radius: 999px;
   margin: 0.5rem;
 

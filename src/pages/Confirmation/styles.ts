@@ -9,7 +9,7 @@ export const Title = styled.header`
     font-size: 1.25rem;
     font-weight: 800;
 
-    color: ${(props) => props.theme['yellow-700']};
+    color: ${(props) => props.theme['yellow']};
 
     margin-bottom: 2.5rem;
 
@@ -18,7 +18,7 @@ export const Title = styled.header`
       font-size: 1.25rem;
       font-weight: 400;
 
-      color: ${(props) => props.theme['gray-500']};
+      color: ${(props) => props.theme['yellow']};
     }
   }
 `
@@ -27,12 +27,12 @@ export const Main = styled.main`
   height: 16.875rem;
   width: 32.875rem;
 
-  border: 1px solid ${(props) => props.theme['purple-500']};
+  border: 1px solid ${(props) => props.theme['yellow']};
   border-radius: 6px 36px;
   padding: 2rem;
 
   font-size: 1rem;
-  color: ${(props) => props.theme['gray-800']};
+  color: ${(props) => props.theme['yellow']};
 
   .clientInformation {
     display: flex;
@@ -49,16 +49,16 @@ export const Main = styled.main`
     width: 2rem;
     height: 2rem;
     padding: 0.5rem;
-    background: ${(props) => props.theme['purple-500']};
+    background: ${(props) => props.theme['yellow']};
     border-radius: 50%;
   }
 
   .timer {
-    background: ${(props) => props.theme['yellow-500']};
+    background: ${(props) => props.theme['yellow']};
   }
 
   .dollar {
-    background: ${(props) => props.theme['yellow-700']};
+    background: ${(props) => props.theme['yellow']};
   }
 `
 

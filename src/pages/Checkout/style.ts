@@ -15,7 +15,7 @@ export const CheckoutContainer = styled.div`
     font-size: 1.125rem;
 
     margin-bottom: 0.93rem;
-    color: ${(props) => props.theme['gray-500']};
+    color: ${(props) => props.theme['base-title']};
   }
 `
 
@@ -26,13 +26,13 @@ export const HeaderWrapper = styled.header`
 
   .subtitle {
     font-size: 1rem;
-    color: ${(props) => props.theme['gray-500']};
+    color: ${(props) => props.theme['base-title']};
     margin-bottom: 2px;
   }
 
   .description {
     font-size: 0.93rem;
-    color: ${(props) => props.theme['gray-800']};
+    color: ${(props) => props.theme['base-subtitle']};
   }
 `
 
@@ -52,14 +52,14 @@ export const Form = styled.form`
 
     border-radius: 8px;
 
-    background: ${(props) => props.theme['gray-200']};
+    background: ${(props) => props.theme['base-card']};
   }
 `
 
 const DefaultInput = styled.input`
-  background: ${(props) => props.theme['gray-250']};
+  background: ${(props) => props.theme['base-input']};
 
-  border: 2px solid ${(props) => props.theme['gray-300']};
+  border: 1px solid ${(props) => props.theme['base-label']};
   border-radius: 5px;
 
   height: 2.625rem;
@@ -68,11 +68,11 @@ const DefaultInput = styled.input`
   padding: 1rem;
 
   &:focus {
-    outline: 2px solid ${(props) => props.theme['purple-500']};
+    outline: 2px solid ${(props) => props.theme['purple']};
   }
 
   &::placeholder {
-    color: ${(props) => props.theme['gray-400']};
+    color: ${(props) => props.theme['base-label']};
   }
 `
 
@@ -105,7 +105,7 @@ export const PaymentContainer = styled.div`
   margin-right: 2rem;
 
   border-radius: 8px;
-  background: ${(props) => props.theme['gray-200']};
+  background: ${(props) => props.theme['base-card']};
 
   padding: 2rem;
 
@@ -115,13 +115,13 @@ export const PaymentContainer = styled.div`
 
   .subtitle {
     font-size: 1rem;
-    color: ${(props) => props.theme['gray-500']};
+    color: ${(props) => props.theme['base-title']};
     margin-left: 0.5rem;
   }
 
   .description {
     font-size: 0.875rem;
-    color: ${(props) => props.theme['gray-800']};
+    color: ${(props) => props.theme['base-subtitle']};
     margin-left: 0.5rem;
   }
 `
@@ -165,19 +165,19 @@ export const Button = styled.button<ButtonProps>`
 
   border-radius: 8px;
 
-  background: ${(props) => props.theme['gray-300']};
+  background: ${(props) => props.theme['base-button']};
 
-  color: ${(props) => props.theme['gray-800']};
+  color: ${(props) => props.theme['base-title']};
 
   font-size: 0.75rem;
 
   transition: 0.2s ease;
 
   border: 1px solid
-    ${(props) => (props.isSelected ? props.theme['purple-500'] : 'transparent')};
+    ${(props) => (props.isSelected ? props.theme['purple'] : 'transparent')};
 
   background: ${(props) =>
-    props.isSelected ? props.theme['purple-100'] : props.theme['gray-300']};
+    props.isSelected ? props.theme['purple-light'] : props.theme['base-button']};
 
   &:hover {
     filter: brightness(0.9);

@@ -6,7 +6,7 @@ export const CartSection = styled.section`
     font-size: 1.125rem;
 
     margin-bottom: 0.93rem;
-    color: ${(props) => props.theme['gray-500']};
+    color: ${(props) => props.theme['purple']};
   }
 `
 
@@ -18,7 +18,7 @@ export const Cart = styled.div`
   min-height: 15.125rem;
   max-height: 999rem;
   width: 28rem;
-  background: ${(props) => props.theme['gray-200']};
+  background: ${(props) => props.theme['base-card']};
   border-radius: 6px 36px;
   padding: 0 1.5rem;
 `
@@ -38,12 +38,12 @@ export const TotalValue = styled.div`
 
     .minSize {
       font-size: 0.875rem;
-      color: ${(props) => props.theme['gray-800']};
+      color: ${(props) => props.theme['base-subtitle']};
     }
 
     .maxSize {
       font-size: 1.25rem;
-      color: ${(props) => props.theme['gray-500']};
+      color: ${(props) => props.theme['base-title']};
     }
   }
 
@@ -57,12 +57,12 @@ export const TotalValue = styled.div`
 
     .minSize {
       font-size: 0.875rem;
-      color: ${(props) => props.theme['gray-800']};
+      color: ${(props) => props.theme['base-label']};
     }
 
     .maxSize {
       font-size: 1.25rem;
-      color: ${(props) => props.theme['gray-500']};
+      color: ${(props) => props.theme['base-title']};
     }
   }
 `
@@ -75,8 +75,8 @@ export const ConfirmationButton = styled.button`
   border-radius: 8px;
   margin-bottom: 2.5rem;
 
-  color: ${(props) => props.theme.white};
-  background: ${(props) => props.theme['yellow-500']};
+  color: ${(props) => props.theme['white']};
+  background: ${(props) => props.theme['yellow']};
 
   font-size: 0.875rem;
   font-weight: bold;
@@ -88,7 +88,7 @@ export const ConfirmationButton = styled.button`
   }
 
   &:disabled {
-    background: ${(props) => props.theme['gray-800']};
+    background: ${(props) => props.theme['base-hover']};
 
     &:hover {
       cursor: not-allowed;
