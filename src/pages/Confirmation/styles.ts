@@ -1,45 +1,37 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
-export const Title = styled.header`
+export const HeaderSection = styled.header`
   display: flex;
   flex-direction: column;
+`
+export const TitleSection = styled.div` 
 
-  .title {
-    font-family: 'Baloo 2', sans-serif;
-    font-size: 1.25rem;
-    font-weight: 800;
+  margin-bottom: 2.5rem;
+  font: normal 1.25rem 'Baloo 2', sans-serif;
+  color: ${(props) => props.theme['yellow']};
 
-    color: ${(props) => props.theme['yellow']};
-
-    margin-bottom: 2.5rem;
-
-    p {
-      font-family: 'Roboto', sans-serif;
-      font-size: 1.25rem;
-      font-weight: 400;
-
-      color: ${(props) => props.theme['yellow']};
-    }
-  }
+  p {
+    font: 400 1.25rem 'Roboto', sans-serif;;
+    color: ${(props) => props.theme['base-subtitle']};
+  };
 `
 
 export const Main = styled.main`
-  height: 16.875rem;
-  width: 32.875rem;
-
-  border: 1px solid ${(props) => props.theme['yellow']};
-  border-radius: 6px 36px;
+  width: 526px;
   padding: 2rem;
+  border-radius: 6px 36px;
+  border: 1px solid ${(props) => props.theme['yellow']};
 
   font-size: 1rem;
-  color: ${(props) => props.theme['yellow']};
+  color: ${(props) => props.theme['base-text']};
 
   .clientInformation {
+    gap: 1.25rem;
     display: flex;
     align-items: center;
-    gap: 1.25rem;
     margin-bottom: 2.812rem;
   }
+
   .column {
     display: flex;
     flex-direction: column;
@@ -49,8 +41,8 @@ export const Main = styled.main`
     width: 2rem;
     height: 2rem;
     padding: 0.5rem;
-    background: ${(props) => props.theme['yellow']};
     border-radius: 50%;
+    background: ${(props) => props.theme['purple']};
   }
 
   .timer {
@@ -58,11 +50,15 @@ export const Main = styled.main`
   }
 
   .dollar {
-    background: ${(props) => props.theme['yellow']};
+    background: ${(props) => props.theme['yellow-dark']};
   }
 `
 
-export const Content = styled.div`
+export const MainContent = styled.div`
   display: flex;
   gap: 6.375rem;
+
+  svg{
+    color: ${(props)=>props.theme['white']};
+  }
 `
