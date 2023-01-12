@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const FormContainer = styled.div`
   margin-right: 5rem;
   height: 90vh;
+  margin-bottom: 34px;
 `
 
 export const CheckoutContainer = styled.div`
