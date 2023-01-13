@@ -14,7 +14,16 @@ export const CartButton = styled.button`
 
   transition: 0.2s ease-in-out;
 
-  &:hover {
+  :disabled{
+    cursor: not-allowed;
+    background: ${(props)=>props.theme['base-button']};
+
+    svg{
+      color: ${(props)=>props.theme['base-hover']};
+    }
+  }
+
+  &:not(:disabled):hover {
     filter: brightness(0.9);
     cursor: pointer;
   }
