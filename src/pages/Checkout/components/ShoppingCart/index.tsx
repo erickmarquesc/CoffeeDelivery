@@ -1,21 +1,27 @@
-import { Cart, CartSection, ConfirmationButton, TotalValue } from './styles'
-import { useEffect, useState } from 'react'
-import { CartCard } from '../CartCard'
-import { useCart } from '../../../../contexts/ShoppingCartContext'
+import { Cart, CartSection, ConfirmationButton, TotalValue } from './styles';
+import { useCart } from '../../../../contexts/ShoppingCartContext';
+import { useEffect, useState } from 'react';
+import { CartCard } from '../CartCard';
 
 export function ShoppingCart() {
-  const { shoppingCartItems } = useCart()
-  const deliveryFee = 3.99
-  const [subTotalPrice, setSubTotalPrice] = useState(0)
-  const [totalPrice, setTotalPrice] = useState(0)
+
+  const [subTotalPrice, setSubTotalPrice] = useState(0);
+  const [totalPrice, setTotalPrice] = useState(0);
+
+  const { shoppingCartItems } = useCart();
+  const cartCounter = shoppingCartItems.length;
+  
+  const deliveryFee = 3.99;
 
   useEffect(() => {
     const subTotal = shoppingCartItems.reduce((total, item) => {
       return total + item.value * item.quantity
-    }, 0)
-    setSubTotalPrice(subTotal)
-    setTotalPrice(subTotal + deliveryFee)
-  }, [shoppingCartItems])
+    }, 0);
+
+    setSubTotalPrice(subTotal);
+    setTotalPrice(subTotal + deliveryFee);
+
+  }, [shoppingCartItems]);
 
   return (
     <CartSection>
@@ -46,10 +52,14 @@ export function ShoppingCart() {
           </div>
         </TotalValue>
 
-        <ConfirmationButton form="checkoutForm" type="submit">
+        <ConfirmationButton
+          type="submit"
+          form="checkoutForm"
+          disabled={cartCounter == 0}
+        >
           CONFIRMAR PEDIDO
         </ConfirmationButton>
       </Cart>
     </CartSection>
-  )
-}
+  );
+};
