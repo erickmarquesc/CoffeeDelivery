@@ -1,6 +1,6 @@
 import { Bank, CreditCard, CurrencyDollarSimple, MapPinLine, Money } from 'phosphor-react';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { Container, Content } from '../../components/Containers/containers';
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { ShoppingCart } from './components/ShoppingCart';
 import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
@@ -17,6 +17,7 @@ import {
 } from './style';
 
 export function Checkout() {
+
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethods>('Dinheiro');
   const { register, handleSubmit, setValue } = useForm();
   const formHistory = useNavigate();
@@ -60,16 +61,40 @@ export function Checkout() {
                   </div>
                 </HeaderWrapper>
 
-                <Input2 {...register('cep')} placeholder="CEP" required />
-                <Input {...register('rua')} placeholder="Rua" required />
-                <Input2 {...register('numero')} placeholder="Número" required />
-                <Input3
-                  {...register('complemento')}
-                  placeholder="Complemento / Opcional"
+                <Input2
+                  required
+                  placeholder="CEP"
+                  {...register('cep')}
                 />
-                <Input2 {...register('bairro')} placeholder="Bairro" required />
-                <Input4 {...register('cidade')} placeholder="Cidade" required />
-                <Input5 {...register('uf')} placeholder="UF" required />
+                <Input
+                  required
+                  placeholder="Rua"
+                  {...register('rua')}
+                />
+                <Input2
+                  required
+                  placeholder="Número"
+                  {...register('numero')}
+                />
+                <Input3
+                  placeholder="Complemento / Opcional"
+                  {...register('complemento')}
+                />
+                <Input2
+                  required
+                  placeholder="Bairro"
+                  {...register('bairro')}
+                />
+                <Input4
+                  required
+                  placeholder="Cidade"
+                  {...register('cidade')}
+                />
+                <Input5
+                  required
+                  placeholder="UF"
+                  {...register('uf')}
+                />
               </div>
 
               <PaymentContainer>
@@ -126,10 +151,10 @@ export function Checkout() {
             </section>
 
             <ShoppingCart />
-            
+
           </Form>
         </FormContainer>
       </Content>
     </Container>
-  )
+  );
 };
