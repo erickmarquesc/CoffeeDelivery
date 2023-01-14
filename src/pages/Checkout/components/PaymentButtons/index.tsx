@@ -1,22 +1,16 @@
-import {  Button,  PaymentContainer,  ButtonsContainer, PaymentMethods} from './styles';
+import { Button, PaymentContainer, ButtonsContainer, PaymentMethods } from './styles';
 import { Bank, CreditCard, CurrencyDollarSimple, Money } from 'phosphor-react';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useCart } from '../../../../contexts/ShoppingCartContext';
+import { useForm } from 'react-hook-form';
 
 export function PaymentButtons() {
 
-  const [paymentMethod, setPaymentMethod] = useState<PaymentMethods>('Dinheiro');
+  const { paymentMethod, paymentMethodChange } = useCart();
   const { register, setValue } = useForm();
-  const formHistory = useNavigate();
-
-  const dataOfForm: SubmitHandler<FieldValues> = (data, e) => {
-    formHistory('/confirmation', { state: data })
-  };
 
   function handlePaymentMethodChange(paymentMethod: PaymentMethods) {
-    setValue('paymentMethod', paymentMethod)
-    setPaymentMethod(paymentMethod)
+    setValue('paymentMethod', paymentMethod);
+    paymentMethodChange(paymentMethod);
   };
 
   return (

@@ -1,12 +1,7 @@
-import {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState
-} from 'react'
+import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import { CoffeeList } from '../components/fakeAPI'
+import { PaymentMethods } from '../pages/Checkout/style'
 
 interface CartItemProps {
   id: number
@@ -44,24 +39,23 @@ interface ShoppingContextProps {
   addCartItem: (state: CartItemProps) => void
   changeAmountOfCoffes: (id: number, quantity: number) => void
   removeCoffee: (id: number) => void
+  paymentMethod: PaymentMethods
+  paymentMethodChange: (method: PaymentMethods) => void
 }
 
 interface ShoppingCartContextProps {
   children: ReactNode
 }
 
-export const ShoppingContext = createContext<ShoppingContextProps>(
-  {} as ShoppingContextProps
-)
+export const ShoppingContext = createContext<ShoppingContextProps>({} as ShoppingContextProps)
 
-export function ShoppingCartContextProvider({
-  children
-}: ShoppingCartContextProps) {
-  const [shoppingCartItems, setShoppingCartItems] = useState<CartItemProps[]>(
-    []
-  )
+export function ShoppingCartContextProvider({ children }: ShoppingCartContextProps) {
+
+  const [shoppingCartItems, setShoppingCartItems] = useState<CartItemProps[]>([])
 
   const [formState, setFormState] = useState<FormContextProps | {}>({})
+
+  const [paymentMethod, setPaymentMethod] = useState<PaymentMethods>('Dinheiro');
 
   function addCartItem(ItemSelected: CartItemProps) {
     const updatedCart = [...shoppingCartItems]
@@ -108,6 +102,10 @@ export function ShoppingCartContextProvider({
     setShoppingCartItems(newCart)
   }
 
+  function paymentMethodChange(method:PaymentMethods){
+    setPaymentMethod(method)
+  }
+
   useEffect(() => {
     const getShoppingLocalStorage =
       localStorage.getItem('CoffeDetails 1.0.0') ?? '[]'
@@ -122,6 +120,7 @@ export function ShoppingCartContextProvider({
     localStorage.setItem('CoffeDetails 1.0.0', newStorageCoffes)
   }, [shoppingCartItems])
 
+
   return (
     <>
       <ShoppingContext.Provider
@@ -133,7 +132,9 @@ export function ShoppingCartContextProvider({
           addCartItem,
           removeCoffee,
           formState,
-          setFormState
+          setFormState,
+          paymentMethod,
+          paymentMethodChange
         }}
       >
         {children}
