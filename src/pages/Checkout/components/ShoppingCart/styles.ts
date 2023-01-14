@@ -14,6 +14,7 @@ export const Cart = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   min-height: 15.125rem;
   max-height: 999rem;
@@ -21,6 +22,46 @@ export const Cart = styled.div`
   background: ${(props) => props.theme['base-card']};
   border-radius: 6px 36px;
   padding: 0 1.5rem;
+
+  .notItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: ${(props) => props.theme['base-label']};
+    text-align: center;
+    gap: 10px;
+
+    svg{
+      color: ${(props) => props.theme['base-label']};
+    };
+
+    p{
+      align-items: center;
+    };
+
+    button{
+      border: 0;
+      gap: 12px;
+      padding: 8px;
+      display: flex;
+      border-radius: 8px;
+      align-items: center;
+      justify-content: center;
+      color: ${(props) => props.theme['white']};
+      background: ${(props) => props.theme['purple-dark']};
+
+      svg{
+        color: ${(props) => props.theme['white']};
+      };
+
+      &:hover {
+        cursor: pointer;
+        filter: brightness(1.2);
+        transition: 0.2s ease-in-out;
+      };
+    };
+  }
 `
 
 export const TotalValue = styled.div`
