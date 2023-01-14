@@ -35,7 +35,7 @@ export function Checkout() {
           <Form
             id="checkoutForm"
             onSubmit={handleSubmit(dataOfForm, () => {
-              alert('mamei')
+              alert('confirmado')
             })}
           >
             <section className="methods">
