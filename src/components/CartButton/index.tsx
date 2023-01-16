@@ -1,4 +1,4 @@
-import { ShoppingContext } from '../../../contexts/ShoppingCartContext';
+import { ShoppingContext } from '../../contexts/ShoppingCartContext';
 import { ShoppingCart } from "phosphor-react";
 import { NavLink } from "react-router-dom";
 import { CartButton } from "./styles";
