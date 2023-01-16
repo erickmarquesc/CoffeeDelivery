@@ -1,41 +1,41 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { toast } from 'react-toastify';
-import { CoffeeList } from '../components/fakeAPI';
 import { PaymentMethods } from '../pages/Checkout/style';
+import { CoffeeList } from '../components/fakeAPI';
+import { toast } from 'react-toastify';
 
-export const ShoppingContext = createContext<ShoppingContextProps>({} as ShoppingContextProps)
+export const ShoppingContext = createContext<ShoppingContextProps>({} as ShoppingContextProps);
 
 export function ShoppingCartContextProvider({ children }: ShoppingCartContextProps) {
 
-  const [shoppingCartItems, setShoppingCartItems] = useState<CartItemProps[]>([])
+  const [shoppingCartItems, setShoppingCartItems] = useState<CartItemProps[]>([]);
 
-  const [formState, setFormState] = useState<FormContextProps | {}>({})
+  const [formState, setFormState] = useState<FormContextProps | {}>({});
 
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethods>('Dinheiro');
 
   function addCartItem(ItemSelected: CartItemProps) {
-    const updatedCart = [...shoppingCartItems]
+    const updatedCart = [...shoppingCartItems];
 
     if (ItemSelected.quantity === 0) {
-      toast.error('Selecione uma quantidade válida', { position: 'top-right' })
+      toast.error('Selecione uma quantidade válida', { position: 'top-right' });
     } else {
       const productExists = updatedCart.find(
         (coffe) => coffe.id === ItemSelected.id
-      )
+      );
 
       if (productExists) {
         toast.error(
           'Item já adicionado ao carrinho, atualize a quantidade no checkout!',
           { position: 'top-right' }
-        )
+        );
       } else {
-        setShoppingCartItems([...shoppingCartItems, ItemSelected])
+        setShoppingCartItems([...shoppingCartItems, ItemSelected]);
         toast.success('Produto adicionado ao carrinho com sucesso!', {
           position: 'top-right'
-        })
-      }
-    }
-  }
+        });
+      };
+    };
+  };
 
   function changeAmountOfCoffes(id: number, quantity: number) {
     const items = shoppingCartItems.map((coffee) => {
@@ -43,62 +43,63 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
         return {
           ...coffee,
           quantity
-        }
-      }
+        };
+      };
 
-      return coffee
-    })
+      return coffee;
+    });
 
-    setShoppingCartItems(items)
-  }
+    setShoppingCartItems(items);
+  };
 
   function removeCoffee(id: number) {
-    const newCart = shoppingCartItems.filter((coffee) => coffee.id !== id)
+    const newCart = shoppingCartItems.filter((coffee) => coffee.id !== id);
 
-    setShoppingCartItems(newCart)
-  }
+    setShoppingCartItems(newCart);
+  };
 
-  function paymentMethodChange(method:PaymentMethods){
-    setPaymentMethod(method)
-  }
+  function paymentMethodChange(method: PaymentMethods) {
+    setPaymentMethod(method);
+  };
 
   useEffect(() => {
     const getShoppingLocalStorage =
       localStorage.getItem('CoffeDetails 1.0.0') ?? '[]'
 
-    const shoppingCartLocalStorage = JSON.parse(getShoppingLocalStorage)
+    const shoppingCartLocalStorage = JSON.parse(getShoppingLocalStorage);
 
-    setShoppingCartItems(shoppingCartLocalStorage)
-  }, [])
+    setShoppingCartItems(shoppingCartLocalStorage);
+  }, []);
 
   useEffect(() => {
-    const newStorageCoffes = JSON.stringify(shoppingCartItems)
-    localStorage.setItem('CoffeDetails 1.0.0', newStorageCoffes)
-  }, [shoppingCartItems])
+    const newStorageCoffes = JSON.stringify(shoppingCartItems);
+    localStorage.setItem('CoffeDetails 1.0.0', newStorageCoffes);
+  }, [shoppingCartItems]);
 
 
   return (
     <>
       <ShoppingContext.Provider
         value={{
-          CoffeeList,
-          shoppingCartItems,
-          setShoppingCartItems,
-          changeAmountOfCoffes,
-          addCartItem,
-          removeCoffee,
           formState,
-          setFormState,
+          CoffeeList,
           paymentMethod,
-          paymentMethodChange
+          shoppingCartItems,
+          addCartItem,
+          setFormState,
+          removeCoffee,
+          paymentMethodChange,
+          setShoppingCartItems,
+          changeAmountOfCoffes
         }}
       >
         {children}
       </ShoppingContext.Provider>
     </>
-  )
-}
+  );
+};
 
+// HOOK
 export function useCart() {
-  return useContext(ShoppingContext)
-}
+  return useContext(ShoppingContext);
+};
