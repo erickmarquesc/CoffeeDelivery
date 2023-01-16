@@ -1,11 +1,11 @@
-import { ShoppingContext } from "../../../../contexts/ShoppingCartContext";
+import { ShoppingContext, useCart } from "../../../../contexts/ShoppingCartContext";
 import { CoffeeSectionConteiner } from "./styles";
 import { CoffeeCard } from "../CoffeeCard";
 import { useContext } from "react";
 
 export function CoffeeList() {
 
-  const { CoffeeList } = useContext(ShoppingContext);
+  const { CoffeeList } = useCart();
 
   return (
     <CoffeeSectionConteiner>
