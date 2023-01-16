@@ -60,7 +60,7 @@ export function CartCard({ id, name, img, value, quantity }: CartItemProps) {
             </CounterButton>
           </CounterWrapper>
           <RemoveItemButton onClick={handleRemoveCoffe}>
-            <Trash size={16} color="#8047F8" />
+            <Trash size={16} />
             REMOVER
           </RemoveItemButton>
         </div>

@@ -10,7 +10,7 @@ export function AdressUser() {
     <div className="teste">
 
       <HeaderWrapper>
-        <MapPinLine size={22} color="#C47f17" />
+        <MapPinLine size={22} />
         <div>
           <h3 className="subtitle">Endereço de Entrega</h3>
           <p className="description">

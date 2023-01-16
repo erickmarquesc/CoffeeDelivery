@@ -5,6 +5,10 @@ export const HeaderWrapper = styled.header`
   margin-bottom: 2rem;
   gap: 0.5rem;
 
+  svg{
+    color: ${(props) => props.theme['yellow-dark']};
+  }
+
   .subtitle {
     font-size: 1rem;
     color: ${(props) => props.theme['base-title']};

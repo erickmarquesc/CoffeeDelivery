@@ -66,6 +66,10 @@ export const RemoveItemButton = styled.button`
 
   transition: 0.2s ease-in-out;
 
+  svg{
+    color: ${(props) => props.theme['purple']};
+  }
+
   &:hover {
     filter: brightness(0.9);
     cursor: pointer;

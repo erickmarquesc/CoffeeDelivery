@@ -11,6 +11,10 @@ export const PaymentContainer = styled.div`
 
   padding: 2rem;
 
+  svg{
+    color: ${(props) => props.theme['purple']};
+  }
+
   .header {
     display: flex;
   }

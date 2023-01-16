@@ -17,7 +17,7 @@ export function PaymentButtons() {
     <PaymentContainer>
 
       <section className="header">
-        <CurrencyDollarSimple color="#8047F8" size={22} />
+        <CurrencyDollarSimple size={22} />
         <div>
           <h2 className="subtitle">Pagamento</h2>
           <p className="description">
@@ -33,7 +33,7 @@ export function PaymentButtons() {
           isSelected={paymentMethod === 'Cartão de crédito'}
           onClick={() => handlePaymentMethodChange('Cartão de crédito')}
         >
-          <CreditCard className="iconButton" size={18} color="#8047F8" />
+          <CreditCard className="iconButton" size={18} />
           CARTÃO DE CRÉDITO
         </Button>
 
@@ -42,7 +42,7 @@ export function PaymentButtons() {
           isSelected={paymentMethod === 'Cartão de débito'}
           onClick={() => handlePaymentMethodChange('Cartão de débito')}
         >
-          <Bank className="iconButton" size={18} color="#8047F8" />
+          <Bank className="iconButton" size={18} />
           CARTÃO DE DÉBITO
         </Button>
 
@@ -52,7 +52,7 @@ export function PaymentButtons() {
           onClick={() => handlePaymentMethodChange('Dinheiro')}
         >
           <div className="money">
-            <Money className="iconButton" size={18} color="#8047F8" />
+            <Money className="iconButton" size={18} />
             DINHEIRO
           </div>
         </Button>
