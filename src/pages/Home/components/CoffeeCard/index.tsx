@@ -2,15 +2,6 @@ import { Card, CounterButton, CounterWrapper, ShopContainer, TypeWrapper } from 
 import { useCart } from '../../../../contexts/ShoppingCartContext';
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
 import { useState } from 'react';
-interface CardItemProps {
-  id: number,
-  name: string,
-  img: string,
-  value: number,
-  description: string,
-  types: string[],
-  quantity: number,
-};
 
 export function CoffeeCard({ id, name, img, value, description, types }: CardItemProps) {
 

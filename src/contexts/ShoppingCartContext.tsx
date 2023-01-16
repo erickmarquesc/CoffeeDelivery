@@ -1,51 +1,7 @@
-import { createContext, ReactNode, useContext, useEffect, useState } from 'react'
-import { toast } from 'react-toastify'
-import { CoffeeList } from '../components/fakeAPI'
-import { PaymentMethods } from '../pages/Checkout/style'
-
-interface CartItemProps {
-  id: number
-  name: string
-  img: string
-  value: number
-  quantity: number
-}
-
-interface FormContextProps {
-  complemento: string
-  bairro: string
-  cep: string | number
-  cidade: string
-  numero: string
-  rua: string
-  uf: string
-}
-
-interface ShoppingContextProps {
-  CoffeeList: {
-    id: number
-    name: string
-    types: string[]
-    description: string
-    img: string
-    value: number
-    quantity: number
-  }[]
-
-  formState: FormContextProps | {}
-  setFormState: React.Dispatch<React.SetStateAction<{} | FormContextProps>>
-  shoppingCartItems: CartItemProps[]
-  setShoppingCartItems: React.Dispatch<React.SetStateAction<CartItemProps[]>>
-  addCartItem: (state: CartItemProps) => void
-  changeAmountOfCoffes: (id: number, quantity: number) => void
-  removeCoffee: (id: number) => void
-  paymentMethod: PaymentMethods
-  paymentMethodChange: (method: PaymentMethods) => void
-}
-
-interface ShoppingCartContextProps {
-  children: ReactNode
-}
+import { createContext, useContext, useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
+import { CoffeeList } from '../components/fakeAPI';
+import { PaymentMethods } from '../pages/Checkout/style';
 
 export const ShoppingContext = createContext<ShoppingContextProps>({} as ShoppingContextProps)
 

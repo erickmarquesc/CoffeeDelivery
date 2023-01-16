@@ -5,17 +5,6 @@ import illustration from '../../assets/Illustration.svg';
 import { useLocation } from 'react-router-dom';
 import { useCart } from '../../contexts/ShoppingCartContext';
 
-interface FormContextProps {
-  complemento: string,
-  bairro: string,
-  cep: string | number,
-  cidade: string,
-  numero: string,
-  rua: string,
-  uf: string,
-  paymentMethod: string,
-};
-
 export function Confirmation() {
 
   const history: any = useLocation();
