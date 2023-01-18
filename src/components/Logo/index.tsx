@@ -1,4 +1,4 @@
-import LogoBrand from '../../../assets/LogoBrand.svg';
+import LogoBrand from '../../assets/LogoBrand.svg';
 import { Link } from 'react-router-dom';
 import { Logo } from './styles';
 
