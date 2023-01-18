@@ -19,6 +19,14 @@ export const CartButton = styled.button`
     cursor: pointer;
   }
 
+  &:disabled{
+    cursor: not-allowed;
+    background: ${(props) => props.theme['base-button']};
+    svg{
+      color: ${(props)=> props.theme['base-label']};
+    }
+  }
+
   .cartIcon {
     color: ${(props) => props.theme['yellow-dark']};
   }
