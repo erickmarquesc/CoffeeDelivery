@@ -51,15 +51,15 @@ export function CartCard({ id, name, img, value, quantity }: CartItemProps) {
         <p className="coffeTypeText">{name}</p>
         <div className="buttonsWrapper">
           <CounterWrapper>
-            <CounterButton onClick={handleDeacreaseAmount}>
+            <CounterButton onClick={handleDeacreaseAmount} type='button'>
               <Minus weight="bold" />
             </CounterButton>
             <p className="itemsInCart">{quantity}</p>
-            <CounterButton onClick={handleIncreaseAmount}>
+            <CounterButton onClick={handleIncreaseAmount} type='button'>
               <Plus weight="bold" />
             </CounterButton>
           </CounterWrapper>
-          <RemoveItemButton onClick={handleRemoveCoffe}>
+          <RemoveItemButton onClick={handleRemoveCoffe} type='button'>
             <Trash size={16} />
             REMOVER
           </RemoveItemButton>

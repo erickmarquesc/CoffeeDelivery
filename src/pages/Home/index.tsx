@@ -5,7 +5,7 @@ import { TitleCoffeeSection } from "./styles";
 
 export function Home() {
   return (
-    <Container variant="secondary">
+    <Container variant="secondary" as="main">
       <Content variant="secondary">
         <div>
 

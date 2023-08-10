@@ -1,13 +1,21 @@
-import { Outlet } from 'react-router-dom'
-import { Footer } from '../../components/Footer';
-import { Header } from '../../components/Header'
+import { HeaderAndFooter } from '../../components/HeaderAndFooter';
+import { Outlet } from 'react-router-dom';
 
 export function DefaultLayout() {
   return (
     <div>
-      <Header />
+      <HeaderAndFooter.Root type='header'>
+        <HeaderAndFooter.Logo />
+        <HeaderAndFooter.LocaleAndCart />
+      </HeaderAndFooter.Root>
+
       <Outlet />
-      <Footer/>
+
+      <HeaderAndFooter.Root type='footer'>
+        <HeaderAndFooter.Logo />
+        <HeaderAndFooter.MidiaGroup />
+        <HeaderAndFooter.LocaleAndCart/>
+      </HeaderAndFooter.Root>
     </div>
   );
 };
