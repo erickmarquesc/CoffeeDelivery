@@ -1,7 +1,6 @@
-import { ShoppingContext, useCart } from "../../../../contexts/ShoppingCartContext";
+import { useCart } from "../../../../contexts/ShoppingCartContext";
 import { CoffeeSectionConteiner } from "./styles";
 import { CoffeeCard } from "../CoffeeCard";
-import { useContext } from "react";
 
 export function CoffeeList() {
 

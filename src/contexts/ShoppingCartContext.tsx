@@ -1,6 +1,6 @@
 import { createContext, useContext, useEffect, useState } from 'react';
 import { PaymentMethods } from '../pages/Checkout/style';
-import { CoffeeList } from '../components/fakeAPI';
+import { CoffeeList } from '../utils/coffeeListAPI';
 import { toast } from 'react-toastify';
 
 export const ShoppingContext = createContext<ShoppingContextProps>({} as ShoppingContextProps);
@@ -75,7 +75,6 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
     const newStorageCoffes = JSON.stringify(shoppingCartItems);
     localStorage.setItem('CoffeDetails 1.0.0', newStorageCoffes);
   }, [shoppingCartItems]);
-
 
   return (
     <>
