@@ -6,7 +6,7 @@ import { useState } from 'react';
 export function CoffeeCard({ id, name, img, value, description, types }: CardItemProps) {
 
   const { addCartItem } = useCart();
-  const [quantity, setQuantity] = useState(0);
+  const [quantity, setQuantity] = useState(1);
 
   function handleDecreaseQuantity() {
     if (quantity > 1) {
@@ -32,7 +32,7 @@ export function CoffeeCard({ id, name, img, value, description, types }: CardIte
     };
 
     addCartItem(coffee);
-    setQuantity(0);
+    setQuantity(1);
   };
 
   return (
