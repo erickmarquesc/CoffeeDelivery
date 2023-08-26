@@ -89,40 +89,4 @@ export const ProductValue = styled.div`
   color: ${(props) => props.theme['base-subtitle']};
 `
 
-export const CounterWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 2.375rem;
-  width: 4.5rem;
 
-  border-radius: 8px;
-  margin-right: 0.5rem;
-  background: ${(props) => props.theme['base-button']};
-
-  .itemsInCart {
-    color: ${(props) => props.theme['purple']};
-  }
-`
-
-export const CounterButton = styled.button`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  font-size: 0.75rem;
-
-  width: 20px;
-  height: 20px;
-  color: ${(props) => props.theme['purple']};
-  background: transparent;
-  border: 1px solid ${(props) => props.theme['base-text']};
-  border-radius: 999px;
-  margin: 0.5rem;
-
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    cursor: pointer;
-    filter: brightness(0.7);
-  }
-`

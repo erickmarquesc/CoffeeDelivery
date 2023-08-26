@@ -1,7 +1,8 @@
-import { Card, CounterButton, CounterWrapper, ShopContainer, TypeWrapper } from './styles';
+import { Card, ShopContainer, TypeWrapper } from './styles';
 import { useCart } from '../../../../contexts/ShoppingCartContext';
-import { Minus, Plus, ShoppingCart } from 'phosphor-react';
+import { ShoppingCart } from 'phosphor-react';
 import { useState } from 'react';
+import { Counter } from '../../../../components/Counter';
 
 export function CoffeeCard({ id, name, img, value, description, types }: CardItemProps) {
 
@@ -58,19 +59,11 @@ export function CoffeeCard({ id, name, img, value, description, types }: CardIte
             R$ <span>{value}</span>
           </p>
 
-          <CounterWrapper>
-            <CounterButton onClick={handleDecreaseQuantity}>
-              <Minus weight="bold" />
-            </CounterButton>
-
-            <p className="itemsInCart">
-              {quantity}
-            </p>
-
-            <CounterButton onClick={handleIncreaseQuantity}>
-              <Plus weight="bold" />
-            </CounterButton>
-          </CounterWrapper>
+          <Counter
+            handleDecreaseQuantity={handleDecreaseQuantity}
+            handleIncreaseQuantity={handleIncreaseQuantity}
+            quantity={quantity }
+          />
 
           <button className="cartButton" onClick={() => handleAddProduct()}>
             <ShoppingCart size={20} weight="fill" />
