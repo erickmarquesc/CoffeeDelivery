@@ -2,6 +2,7 @@ import { Card, CounterButton, CounterWrapper, ShopContainer, TypeWrapper } from 
 import { useCart } from '../../../../contexts/ShoppingCartContext';
 import { Minus, Plus, ShoppingCart } from 'phosphor-react';
 import { useState } from 'react';
+import { converterCoin } from '../../../../utils/converterCoin';
 
 export function CoffeeCard({ id, name, img, value, description, types }: CardItemProps) {
 
@@ -36,47 +37,45 @@ export function CoffeeCard({ id, name, img, value, description, types }: CardIte
   };
 
   return (
-    <>
-      <Card productId={id} key={id}>
-        <img className="coffeImg" src={img} alt="Café tradicional" />
+    <Card productId={id} key={id}>
+      <img className="coffeImg" src={img} alt="Café tradicional" />
 
-        <TypeWrapper>
-          {types.map((type) => {
-            return (
-              <div className="coffeType" key={type}>
-                {type}
-              </div>
-            )
-          })}
-        </TypeWrapper>
+      <TypeWrapper>
+        {types.map((type) => {
+          return (
+            <div className="coffeType" key={type}>
+              {type}
+            </div>
+          )
+        })}
+      </TypeWrapper>
 
-        <h1>{name}</h1>
-        <p className="description">{description}</p>
+      <h1>{name}</h1>
+      <p className="description">{description}</p>
 
-        <ShopContainer>
-          <p>
-            R$ <span>{value}</span>
+      <ShopContainer>
+        <p>
+          R$ <span>{converterCoin(value)}</span>
+        </p>
+
+        <CounterWrapper>
+          <CounterButton onClick={handleDecreaseQuantity}>
+            <Minus weight="bold" />
+          </CounterButton>
+
+          <p className="itemsInCart">
+            {quantity}
           </p>
 
-          <CounterWrapper>
-            <CounterButton onClick={handleDecreaseQuantity}>
-              <Minus weight="bold" />
-            </CounterButton>
+          <CounterButton onClick={handleIncreaseQuantity}>
+            <Plus weight="bold" />
+          </CounterButton>
+        </CounterWrapper>
 
-            <p className="itemsInCart">
-              {quantity}
-            </p>
-
-            <CounterButton onClick={handleIncreaseQuantity}>
-              <Plus weight="bold" />
-            </CounterButton>
-          </CounterWrapper>
-
-          <button className="cartButton" onClick={() => handleAddProduct()}>
-            <ShoppingCart size={20} weight="fill" />
-          </button>
-        </ShopContainer>
-      </Card>
-    </>
+        <button className="cartButton" onClick={() => handleAddProduct()}>
+          <ShoppingCart size={20} weight="fill" />
+        </button>
+      </ShopContainer>
+    </Card>
   );
 };
