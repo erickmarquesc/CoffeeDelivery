@@ -4,6 +4,7 @@ import { ShoppingCart } from 'phosphor-react';
 import { useState } from 'react';
 
 import { converterCoin } from '../../../../utils/converterCoin';
+import { Counter } from '../../../../components/Counter';
 
 
 
@@ -60,19 +61,11 @@ export function CoffeeCard({ id, name, img, value, description, types }: CardIte
         <p>
           R$ <span>{converterCoin(value)}</span>
         </p>
-        <CounterWrapper>
-          <CounterButton onClick={handleDecreaseQuantity}>
-            <Minus weight="bold" />
-          </CounterButton>
-
-          <p className="itemsInCart">
-            {quantity}
-          </p>
-
-          <CounterButton onClick={handleIncreaseQuantity}>
-            <Plus weight="bold" />
-          </CounterButton>
-        </CounterWrapper>
+        <Counter
+          handleDecreaseQuantity={handleDecreaseQuantity}
+          handleIncreaseQuantity={handleIncreaseQuantity}
+          quantity={quantity}
+        />
 
 
         <button className="cartButton" onClick={() => handleAddProduct()}>
