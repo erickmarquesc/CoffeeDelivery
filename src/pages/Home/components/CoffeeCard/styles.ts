@@ -27,6 +27,8 @@ export const Card = styled.div<CardProps>`
     font-size: 1.25rem;
     font-weight: 700;
 
+    text-transform: capitalize;
+
     margin-bottom: 0.5rem;
     color: ${(props) => props.theme['base-title']};
   }
@@ -35,6 +37,11 @@ export const Card = styled.div<CardProps>`
     text-align: center;
     font-size: 0.875rem;
     margin-bottom: 2rem;
+    
+    ::first-letter {
+      text-transform: uppercase;
+    }
+
     color: ${(props) => props.theme['base-text']};
   }
 
@@ -64,6 +71,8 @@ export const Card = styled.div<CardProps>`
 export const TypeWrapper = styled.div`
   display: flex;
   gap: 0.25rem;
+
+  text-transform: uppercase;
   .coffeType {
     font-size: 0.625rem;
     font-weight: bold;
