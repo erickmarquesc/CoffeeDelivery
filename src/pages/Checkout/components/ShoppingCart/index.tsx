@@ -47,9 +47,9 @@ export function ShoppingCart() {
 
             < TotalValue >
               <div className="items">
-                <p className="minSize">Total de itens</p>
+                <p className="minSize">Total</p>
                 <p className="minSize">Entrega</p>
-                <h3 className="maxSize">Total</h3>
+                <h3 className="maxSize">Valor final</h3>
               </div>
 
               <div className="itemsValue">
