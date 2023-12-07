@@ -9,7 +9,7 @@ interface IHomeRoot {
 export function HomeRoot({ children }: IHomeRoot) {
   return (
     <Container variant="secondary" as="main">
-      <HomeContent variant="secondary">
+      <HomeContent>
         {children}
       </HomeContent>
     </Container>

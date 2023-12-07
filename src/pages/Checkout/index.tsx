@@ -23,7 +23,7 @@ export function Checkout() {
 
   return (
     <Container variant='secondary'>
-      <Content variant='secondary'>
+      <Content>
 
         <FormContainer>
 

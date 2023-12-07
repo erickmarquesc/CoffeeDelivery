@@ -13,7 +13,7 @@ export function Confirmation() {
 
   return (
     <Container variant='secondary'>
-      <Content variant='secondary'>
+      <Content>
         <div>
 
           <HeaderSection>
