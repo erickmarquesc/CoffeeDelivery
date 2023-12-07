@@ -6,6 +6,11 @@ export const HeroSectionConteiner = styled.div`
   align-items: center;
   margin-bottom: 34px;
 
+  @media(max-width:800px){
+    flex-direction: column;
+
+  }
+
   .img {
     height: 22.5rem;
     width: 29.75rem;
@@ -14,12 +19,18 @@ export const HeroSectionConteiner = styled.div`
 `
 
 export const TitleHeroContent = styled.div`
-  width: 36.75rem;
-
+  @media(min-width:900px){
+    width: 36.75rem;
+  }
   .title {
     margin-bottom: 16px;
     font: normal 3rem 'Baloo 2', sans-serif;
     color: ${(props) => props.theme['base-title']};
+
+    @media(max-width:800px){
+    font: normal 2rem 'Baloo 2', sans-serif;
+
+    }
   };
 
   .subtitle {

@@ -12,17 +12,11 @@ export const Container = styled.div<IConteinersProps>`
   `}
 `;
 
-export const Content = styled.div<IConteinersProps>`
+export const Content = styled.div`
   width: 100%;
   display: flex;
   margin: 0 auto;
   max-width: 1120px;
   padding: 0 1.5rem;
   justify-content: space-between;
-
-  ${(props) => props.variant === 'primary' ? css`
-    align-items: center;
-  `: props.variant === 'secondary' && css`
-    align-items: flex-start;
-  `}
 `;
