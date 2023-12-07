@@ -63,18 +63,19 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
   };
 
   useEffect(() => {
-    const getShoppingLocalStorage =
-      localStorage.getItem('CoffeDetails 1.0.0') ?? '[]'
-
+    const getShoppingLocalStorage = localStorage.getItem('CoffeDetails 1.0.0') ?? '[]'
     const shoppingCartLocalStorage = JSON.parse(getShoppingLocalStorage);
 
-    setShoppingCartItems(shoppingCartLocalStorage);
+    if (shoppingCartLocalStorage.length > 0) {
+      setShoppingCartItems(shoppingCartLocalStorage);
+    }
   }, []);
 
   useEffect(() => {
     const newStorageCoffes = JSON.stringify(shoppingCartItems);
     localStorage.setItem('CoffeDetails 1.0.0', newStorageCoffes);
   }, [shoppingCartItems]);
+
 
   return (
     <>
