@@ -1,5 +1,6 @@
 import { ReactNode } from "react";
-import { Container, Content } from "../Containers/containers";
+import { Container } from "../Containers/containers";
+import { HeaderAndFooterRootContent } from "./styles";
 
 interface IHeaderAndFooterRootProps {
   children: ReactNode;
@@ -9,9 +10,9 @@ interface IHeaderAndFooterRootProps {
 export function HeaderAndFooterRoot({ children, type }: IHeaderAndFooterRootProps) {
   return (
     <Container variant="primary" as={type}>
-      <Content variant="secondary">
+      <HeaderAndFooterRootContent>
         {children}
-      </Content>
+      </HeaderAndFooterRootContent>
     </Container>
   )
 }
