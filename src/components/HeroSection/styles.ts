@@ -5,23 +5,21 @@ export const HeroSectionConteiner = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 34px;
+  flex-wrap: wrap;
 
   @media(max-width:800px){
     flex-direction: column;
-
   }
-
+  
   .img {
-    height: 22.5rem;
-    width: 29.75rem;
-    align-self: flex-end;
+    height: 19.5rem;
+    width: 23.5rem;
   };
 `
 
 export const TitleHeroContent = styled.div`
-  @media(min-width:900px){
-    width: 36.75rem;
-  }
+  max-width: 40rem;
+  
   .title {
     margin-bottom: 16px;
     font: normal 3rem 'Baloo 2', sans-serif;
@@ -29,7 +27,6 @@ export const TitleHeroContent = styled.div`
 
     @media(max-width:800px){
     font: normal 2rem 'Baloo 2', sans-serif;
-
     }
   };
 
@@ -37,6 +34,11 @@ export const TitleHeroContent = styled.div`
     font-size: 1.25rem;
     margin-bottom: 4.125rem;
     color: ${(props) => props.theme['base-text']};
+
+    @media(max-width:800px){
+        font-size: 1rem;
+
+    }
   };
 `
 

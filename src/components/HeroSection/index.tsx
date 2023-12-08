@@ -1,6 +1,6 @@
 import { HeroSectionConteiner, ServicesHero, TitleHeroContent } from "./styles";
 import { Package, Coffee, ShoppingCart, Timer } from "phosphor-react";
-import marketingImg from "../../../../assets/Imagem.svg";
+import marketingImg from "../../assets/Imagem.svg";
 
 export function HeroSection() {
   return (
@@ -10,8 +10,8 @@ export function HeroSection() {
           Encontre o café perfeito para qualquer hora do dia
         </h1>
         <p className="subtitle">
-          Com o Coffee Delivery você recebe seu café onde estiver, a
-          qualquer hora
+          Com o Coffee Delivery você recebe seu café onde estiver, <br />
+          a qualquer hora.
         </p>
 
         <ServicesHero>
