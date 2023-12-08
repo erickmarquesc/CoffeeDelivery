@@ -4,9 +4,9 @@ import { NavLink } from "react-router-dom";
 import { CartButton } from "./styles";
 
 export function ShoppingCartButton() {
-  const { shoppingCartItems } = useCart();
+  const { ShoppingCartContextState } = useCart();
   
-  const cartCounter = shoppingCartItems.length;
+  const cartCounter = ShoppingCartContextState.length;
   const isActiveCart = cartCounter > 0 ? true : false;
   
   return (

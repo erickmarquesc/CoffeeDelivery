@@ -5,33 +5,34 @@ import { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { CartCard } from '../CartCard';
 
+
 export function ShoppingCart() {
 
   const [subTotalPrice, setSubTotalPrice] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
 
-  const { shoppingCartItems } = useCart();
-  const cartCounter = shoppingCartItems.length;
+  const { ShoppingCartContextState } = useCart();
+  const cartCounter = ShoppingCartContextState.length;
 
   const deliveryFee = 3.99;
 
   useEffect(() => {
-    const subTotal = shoppingCartItems.reduce((total, item) => {
+    const subTotal = ShoppingCartContextState.reduce((total, item) => {
       return total + item.value * item.quantity
     }, 0);
 
     setSubTotalPrice(subTotal);
     setTotalPrice(subTotal + deliveryFee);
 
-  }, [shoppingCartItems]);
+  }, [ShoppingCartContextState]);
 
   return (
     <CartSection>
       <Cart>
-        {shoppingCartItems.length > 0 ?
+        {ShoppingCartContextState.length > 0 ?
           <>
             {
-              shoppingCartItems.map((card) => {
+              ShoppingCartContextState.map((card) => {
                 return (
                   <CartCard
                     key={card.id}
