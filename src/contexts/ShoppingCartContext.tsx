@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState } from 'react';
+import { createContext, useContext, useEffect, useReducer, useState } from 'react';
 import { PaymentMethods } from '../pages/Checkout/style';
 import { CoffeeList } from '../utils/coffeeListAPI';
 import { toast } from 'react-toastify';
@@ -6,39 +6,61 @@ import { toast } from 'react-toastify';
 export const ShoppingContext = createContext<ShoppingContextProps>({} as ShoppingContextProps);
 
 export function ShoppingCartContextProvider({ children }: ShoppingCartContextProps) {
-
-  const [shoppingCartItems, setShoppingCartItems] = useState<CartItemProps[]>([]);
-
   const [formState, setFormState] = useState<FormContextProps | {}>({});
 
   const [paymentMethod, setPaymentMethod] = useState<PaymentMethods>('Dinheiro');
 
-  function addCartItem(ItemSelected: CartItemProps) {
-    const updatedCart = [...shoppingCartItems];
+  const [ShoppingCartContextState, dispatch] = useReducer((state: CartItemProps[], action: any): CartItemProps[] => {
+    switch (action.type) {
+      case "ADD_ITEM":
+        if (action.payload.ItemSelected.quantity === 0) {
+          toast.error('Selecione pelo menos um item', { position: 'top-right' });
+          return state;
+        }
 
-    if (ItemSelected.quantity === 0) {
-      toast.error('Selecione pelo menos um item', { position: 'top-right' });
-    } else {
-      const productExists = updatedCart.find(
-        (coffe) => coffe.id === ItemSelected.id
-      );
-
-      if (productExists) {
-        toast.error(
-          'Item já adicionado ao carrinho, atualize a quantidade na compra!',
-          { position: 'top-right' }
+        const productExists = state.find(
+          (coffe) => coffe.id === action.payload.ItemSelected.id
         );
-      } else {
-        setShoppingCartItems([...shoppingCartItems, ItemSelected]);
+
+        if (productExists) {
+          toast.error(
+            'Item já adicionado ao carrinho, atualize a quantidade na compra!',
+            { position: 'top-right' }
+          );
+          return state;
+        }
+
         toast.success('Produto adicionado ao carrinho com sucesso!', {
           position: 'top-right'
         });
-      };
-    };
+
+        return [...state, action.payload.ItemSelected];
+
+      case "REMOVE_ITEM":
+        return action.payload.newCart;
+
+      case "AMOUNT_ITEM":
+        return action.payload.items;
+
+      case "LOCAL_STORAGE":
+        return action.payload.shoppingCartLocalStorage;
+
+      default:
+        return state;
+    }
+  }, []);
+
+  function addCartItem(ItemSelected: CartItemProps) {
+    dispatch({
+      type: "ADD_ITEM",
+      payload: {
+        ItemSelected
+      }
+    })
   };
 
   function changeAmountOfCoffes(id: number, quantity: number) {
-    const items = shoppingCartItems.map((coffee) => {
+    const items = ShoppingCartContextState.map((coffee) => {
       if (coffee.id === id) {
         return {
           ...coffee,
@@ -49,13 +71,23 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
       return coffee;
     });
 
-    setShoppingCartItems(items);
+    dispatch({
+      type: "AMOUNT_ITEM",
+      payload: {
+        items
+      }
+    })
   };
 
   function removeCoffee(id: number) {
-    const newCart = shoppingCartItems.filter((coffee) => coffee.id !== id);
+    const newCart = ShoppingCartContextState.filter((coffee) => coffee.id !== id);
 
-    setShoppingCartItems(newCart);
+    dispatch({
+      type: "REMOVE_ITEM",
+      payload: {
+        newCart
+      }
+    })
   };
 
   function paymentMethodChange(method: PaymentMethods) {
@@ -63,19 +95,23 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
   };
 
   useEffect(() => {
-    const getShoppingLocalStorage = localStorage.getItem('CoffeDetails 1.0.0') ?? '[]'
+    const getShoppingLocalStorage = localStorage.getItem('CoffeDetails 1.0.0') ?? '[]';
     const shoppingCartLocalStorage = JSON.parse(getShoppingLocalStorage);
 
     if (shoppingCartLocalStorage.length > 0) {
-      setShoppingCartItems(shoppingCartLocalStorage);
+      dispatch({
+        type: 'LOCAL_STORAGE',
+        payload: {
+          shoppingCartLocalStorage
+        }
+      });
     }
   }, []);
 
   useEffect(() => {
-    const newStorageCoffes = JSON.stringify(shoppingCartItems);
+    const newStorageCoffes = JSON.stringify(ShoppingCartContextState);
     localStorage.setItem('CoffeDetails 1.0.0', newStorageCoffes);
-  }, [shoppingCartItems]);
-
+  }, [ShoppingCartContextState]);
 
   return (
     <>
@@ -84,12 +120,11 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
           formState,
           CoffeeList,
           paymentMethod,
-          shoppingCartItems,
+          ShoppingCartContextState,
           addCartItem,
           setFormState,
           removeCoffee,
           paymentMethodChange,
-          setShoppingCartItems,
           changeAmountOfCoffes
         }}
       >

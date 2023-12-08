@@ -29,8 +29,7 @@ interface ShoppingContextProps {
 
   formState: FormContextProps | {}
   setFormState: React.Dispatch<React.SetStateAction<{} | FormContextProps>>
-  shoppingCartItems: CartItemProps[]
-  setShoppingCartItems: React.Dispatch<React.SetStateAction<CartItemProps[]>>
+  ShoppingCartContextState: CartItemProps[]
   addCartItem: (state: CartItemProps) => void
   changeAmountOfCoffes: (id: number, quantity: number) => void
   removeCoffee: (id: number) => void
