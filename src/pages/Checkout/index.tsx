@@ -1,4 +1,4 @@
-import { Container, Content } from '../../components/Containers/containers';
+import { Container } from '../../components/Containers/containers';
 import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
 import { PaymentButtons } from './components/PaymentButtons';
 import { ShoppingCart } from './components/ShoppingCart';
@@ -7,10 +7,10 @@ import { MapPinLine } from 'phosphor-react';
 import {
   Form,
   HeaderWrapper,
-  FormContainer,
-  CheckoutContainer,
-  Input, Input2, Input3, Input4, Input5
+  CheckoutContente,
+  Input, Input2, Input3, Input4, Input5, FormSection
 } from './style';
+import { HeaderSectionForm } from './components/HeaderSectionForm';
 
 export function Checkout() {
 
@@ -23,35 +23,25 @@ export function Checkout() {
 
   return (
     <Container variant='secondary'>
-      <Content>
+      <CheckoutContente>
+        <h1>Finalize seu pedido</h1>
+        <Form
+          id="checkoutForm"
+          onSubmit={handleSubmit(dataOfForm, () => {
+            alert('confirmado')
+          })}
+        >
+          <div className='formSectionContainer'>
+            <FormSection>
+              <HeaderSectionForm
+                title='Endereço de Entrega'
+                description='Informe o endereço onde deseja receber seu pedido'
+                icon={<MapPinLine size={22} />}
+              />
 
-        <FormContainer>
-
-          <CheckoutContainer>
-            <h1 className="titles">Complete seu pedido</h1>
-            <h1 className="titles">Cafés selecionados</h1>
-          </CheckoutContainer>
-
-          <Form
-            id="checkoutForm"
-            onSubmit={handleSubmit(dataOfForm, () => {
-              alert('confirmado')
-            })}
-          >
-            <section className="methods">
-              <div className="teste">
-
-                <HeaderWrapper>
-                  <MapPinLine size={22} />
-                  <div>
-                    <h3 className="subtitle">Endereço de Entrega</h3>
-                    <p className="description">
-                      Informe o endereço onde deseja receber seu pedido
-                    </p>
-                  </div>
-                </HeaderWrapper>
-
+              <section className='inputSection'>
                 <Input2 {...register('cep')} placeholder="CEP" required />
+
                 <Input {...register('rua')} placeholder="Rua" required />
                 <Input2 {...register('numero')} placeholder="Número" required />
                 <Input3
@@ -59,18 +49,21 @@ export function Checkout() {
                   placeholder="Complemento / Opcional"
                 />
                 <Input2 {...register('bairro')} placeholder="Bairro" required />
+
                 <Input4 {...register('cidade')} placeholder="Cidade" required />
                 <Input5 {...register('uf')} placeholder="UF" required />
-              </div>
+              </section>
+            </FormSection>
 
-              <PaymentButtons />
-            </section>
 
-            <ShoppingCart />
+            <PaymentButtons />
 
-          </Form>
-        </FormContainer>
-      </Content>
+          </div>
+
+          <ShoppingCart />
+
+        </Form>
+      </CheckoutContente>
     </Container>
   )
 };
