@@ -1,56 +1,12 @@
 import styled from "styled-components"
 
-export const PaymentContainer = styled.div`
-  min-width: 40rem;
-  height: 12.93rem;
-  margin-top: 0.75rem;
-  margin-right: 2rem;
-
-  border-radius: 8px;
-  background: ${(props) => props.theme['base-card']};
-
-  padding: 2rem;
-
-  svg{
-    color: ${(props) => props.theme['purple']};
-  }
-
-  .header {
-    display: flex;
-  }
-
-  .subtitle {
-    font-size: 1rem;
-    color: ${(props) => props.theme['base-title']};
-    margin-left: 0.5rem;
-  }
-
-  .description {
-    font-size: 0.875rem;
-    color: ${(props) => props.theme['base-subtitle']};
-    margin-left: 0.5rem;
-  }
-`
-
 export const ButtonsContainer = styled.div`
-  display: flex;
+  gap: 12px;
   border: none;
-
-  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
   max-width: 40rem;
-  gap: 0.75rem;
-
-  margin-top: 3.437rem;
-
-  .iconButton {
-    margin-right: 0.75rem;
-  }
-
-  .money {
-    margin-left: -3.5rem;
-    display: flex;
-    align-items: center;
-  }
+  justify-content: center;
 `
 export type PaymentMethods =
   | 'Cartão de crédito'
@@ -62,18 +18,22 @@ interface ButtonProps {
 }
 
 export const Button = styled.button<ButtonProps>`
+  gap: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  width: 11.125rem;
+  padding: 8px;
+  width: 178px;
   height: 3.187rem;
 
   border-radius: 8px;
-
+  color: ${(props) => props.theme['base-title']};
   background: ${(props) => props.theme['base-button']};
 
-  color: ${(props) => props.theme['base-title']};
+  svg{
+    color: ${(props) => props.theme['purple']};
+  }
 
   font-size: 0.75rem;
 

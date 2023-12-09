@@ -1,7 +1,9 @@
-import { Button, PaymentContainer, ButtonsContainer, PaymentMethods } from './styles';
+import { Button, ButtonsContainer, PaymentMethods } from './styles';
 import { Bank, CreditCard, CurrencyDollarSimple, Money } from 'phosphor-react';
 import { useCart } from '../../../../contexts/ShoppingCartContext';
 import { useForm } from 'react-hook-form';
+import { HeaderSectionForm } from '../HeaderSectionForm';
+import { FormSection } from '../../style';
 
 export function PaymentButtons() {
 
@@ -14,18 +16,13 @@ export function PaymentButtons() {
   };
 
   return (
-    <PaymentContainer>
-
-      <section className="header">
-        <CurrencyDollarSimple size={22} />
-        <div>
-          <h2 className="subtitle">Pagamento</h2>
-          <p className="description">
-            O pagamento é feito na entrega. Escolha a forma que deseja
-            pagar
-          </p>
-        </div>
-      </section>
+    <FormSection>
+      <HeaderSectionForm
+        title='Pagamento'
+        description='O pagamento é feito na entrega. Escolha a forma que deseja pagar'
+        colorIcon='purple'
+        icon={<CurrencyDollarSimple size={22} />}
+      />
 
       <ButtonsContainer>
         <Button
@@ -51,10 +48,8 @@ export function PaymentButtons() {
           isSelected={paymentMethod === 'Dinheiro'}
           onClick={() => handlePaymentMethodChange('Dinheiro')}
         >
-          <div className="money">
-            <Money className="iconButton" size={18} />
-            DINHEIRO
-          </div>
+          <Money className="iconButton" size={18} />
+          DINHEIRO
         </Button>
 
         <input
@@ -64,6 +59,6 @@ export function PaymentButtons() {
         />
 
       </ButtonsContainer>
-    </PaymentContainer>
+    </FormSection>
   );
 };
