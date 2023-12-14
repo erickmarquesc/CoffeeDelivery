@@ -47,11 +47,18 @@ export function CartCard({ id, name, img, value, quantity }: CartItemProps) {
       <img className="coffeImg" src={img} alt="Coffee image" />
 
       <MidWrapper>
+
         <p className="coffeTypeText">{name}</p>
+
         <div className="buttonsWrapper">
+          <ProductValue>
+            <p>R$</p>
+            <span>{totalValue.toFixed(2)}</span>
+          </ProductValue>
+
           <Counter
             handleDecreaseQuantity={handleDecreaseQuantity}
-            handleIncreaseQuantity={handleIncreaseQuantity }
+            handleIncreaseQuantity={handleIncreaseQuantity}
             quantity={quantity}
           />
           <RemoveItemButton onClick={handleRemoveCoffe} type='button'>
@@ -59,11 +66,8 @@ export function CartCard({ id, name, img, value, quantity }: CartItemProps) {
             REMOVER
           </RemoveItemButton>
         </div>
+
       </MidWrapper>
-      <ProductValue>
-        <p>R$</p>
-        <span>{totalValue.toFixed(2)}</span>
-      </ProductValue>
     </CartCoffee>
   )
 }

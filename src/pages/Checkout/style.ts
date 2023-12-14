@@ -3,7 +3,8 @@ import { Content } from '../../components/Containers/containers'
 
 export const CheckoutContente = styled(Content)`
   gap: 12px;
-  flex-direction: column;
+  display: flex;
+  flex-wrap: wrap;
 
   h1 {
     font-family: 'Baloo 2', sans-serif;

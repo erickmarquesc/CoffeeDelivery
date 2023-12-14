@@ -17,11 +17,10 @@ export const Cart = styled.div`
   justify-content: center;
 
   min-height: 15.125rem;
-  max-height: 999rem;
-  width: 28rem;
+  gap: 16px;
   background: ${(props) => props.theme['base-card']};
   border-radius: 6px 36px;
-  padding: 0 1.5rem;
+  padding: 16px;
 
   .notItem{
     display: flex;
@@ -67,7 +66,7 @@ export const Cart = styled.div`
 export const TotalValue = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 5.125rem;
+  margin-bottom: 1rem;
   height: 5.75rem;
   width: 23rem;
 
@@ -75,36 +74,23 @@ export const TotalValue = styled.div`
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    margin-top: 3rem;
 
-    .minSize {
-      font-size: 0.875rem;
-      color: ${(props) => props.theme['base-subtitle']};
-    }
+  }
+  .minSize {
+    font-size: 0.875rem;
+    color: ${(props) => props.theme['base-subtitle']};
+  }
 
-    .maxSize {
-      font-size: 1.25rem;
-      color: ${(props) => props.theme['base-title']};
-    }
+  .maxSize {
+    font-size: 1.25rem;
+    color: ${(props) => props.theme['base-title']};
   }
 
   .itemsValue {
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
-    margin-top: 3rem;
-
     text-align: end;
-
-    .minSize {
-      font-size: 0.875rem;
-      color: ${(props) => props.theme['base-label']};
-    }
-
-    .maxSize {
-      font-size: 1.25rem;
-      color: ${(props) => props.theme['base-title']};
-    }
   }
 `
 

@@ -11,40 +11,32 @@ export const CartCoffee = styled.div<CartCoffeProps>`
   position: relative;
   width: 23rem;
   height: 5rem;
-  margin-top: 2.5rem;
+  border-bottom: solid 1px ${(props) => props.theme['base-text']};
 
   .coffeImg {
     width: 4rem;
-    height: 4rem;
-
     margin-right: 1.25rem;
   }
-
-  &::after {
-    display: block;
-    position: absolute;
-    bottom: -2rem;
-
-    content: '';
-    height: 1px;
-    width: 23rem;
-
-    background: ${(props) => props.theme['green-300']};
-  }
+  
 `
 
 export const MidWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  gap: 8px;
 
   .coffeTypeText {
+    font-family: 'Baloo 2', sans-serif;
     font-size: 1rem;
     color: ${(props) => props.theme['base-title']};
+    text-transform: capitalize;
   }
 
   .buttonsWrapper {
     display: flex;
-    margin-top: 0.5rem;
+    align-items: center;
+    justify-content: space-between;
   }
 `
 
@@ -78,14 +70,10 @@ export const RemoveItemButton = styled.button`
 
 export const ProductValue = styled.div`
   display: flex;
-  align-self: flex-start;
   font-weight: bold;
   font-size: 1rem;
+  width: 41px;
   gap: 0.25rem;
-
-  margin-left: 3.125rem;
-  margin-top: 0.5rem;
-
   color: ${(props) => props.theme['base-subtitle']};
 `
 
