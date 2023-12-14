@@ -1,10 +1,13 @@
 import { createContext, useContext, useEffect, useReducer, useState } from 'react';
-import { PaymentMethods } from '../pages/Checkout/style';
 import { CoffeeList } from '../utils/coffeeListAPI';
 import { toast } from 'react-toastify';
 
-export const ShoppingContext = createContext<ShoppingContextProps>({} as ShoppingContextProps);
+type PaymentMethods =
+  | 'Cartão de crédito'
+  | 'Cartão de débito'
+  | 'Dinheiro'
 
+export const ShoppingContext = createContext<ShoppingContextProps>({} as ShoppingContextProps);
 export function ShoppingCartContextProvider({ children }: ShoppingCartContextProps) {
   const [formState, setFormState] = useState<FormContextProps | {}>({});
 
@@ -95,8 +98,8 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
   };
 
   useEffect(() => {
-    const getShoppingLocalStorage = localStorage.getItem('CoffeDetails 1.0.0') ?? '[]';
-    const shoppingCartLocalStorage = JSON.parse(getShoppingLocalStorage);
+    const storedData = localStorage.getItem('CoffeDetails 1.0.0') ?? '[]';
+    const shoppingCartLocalStorage = JSON.parse(storedData);
 
     if (shoppingCartLocalStorage.length > 0) {
       dispatch({
@@ -109,9 +112,11 @@ export function ShoppingCartContextProvider({ children }: ShoppingCartContextPro
   }, []);
 
   useEffect(() => {
-    const newStorageCoffes = JSON.stringify(ShoppingCartContextState);
-    localStorage.setItem('CoffeDetails 1.0.0', newStorageCoffes);
+    const newStorageCoffees = JSON.stringify(ShoppingCartContextState);
+    const expiry = Date.now() + 20 * 60 * 1000; // Expira em 20 minutos
+    localStorage.setItem('CoffeDetails 1.0.0', newStorageCoffees);
   }, [ShoppingCartContextState]);
+
 
   return (
     <>
