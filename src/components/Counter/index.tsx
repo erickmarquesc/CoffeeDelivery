@@ -1,5 +1,5 @@
-import { CounterButton, CounterWrapper } from "./styles";
-import { Minus, Plus } from 'phosphor-react';
+import { CounterButton, CounterWrapper } from './styles'
+import { Minus, Plus } from 'phosphor-react'
 
 interface ICounterProps {
   handleDecreaseQuantity: () => void,

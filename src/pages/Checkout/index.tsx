@@ -1,25 +1,25 @@
-import { Container } from '../../components/Containers/containers';
-import { FieldValues, SubmitHandler, useForm } from 'react-hook-form';
-import { PaymentButtons } from './components/PaymentButtons';
-import { ShoppingCart } from './components/ShoppingCart';
-import { useNavigate } from 'react-router-dom';
-import { MapPinLine } from 'phosphor-react';
+import { Container } from '../../components/Containers/containers'
+import { FieldValues, SubmitHandler, useForm } from 'react-hook-form'
+import { PaymentButtons } from './components/PaymentButtons'
+import { ShoppingCart } from './components/ShoppingCart'
+import { useNavigate } from 'react-router-dom'
+import { MapPinLine } from 'phosphor-react'
 import {
   Form,
   HeaderWrapper,
   CheckoutContente,
   Input, Input2, Input3, Input4, Input5, FormSection
-} from './style';
-import { HeaderSectionForm } from './components/HeaderSectionForm';
+} from './style'
+import { HeaderSectionForm } from './components/HeaderSectionForm'
 
 export function Checkout() {
 
-  const { register, handleSubmit } = useForm();
-  const formHistory = useNavigate();
+  const { register, handleSubmit } = useForm()
+  const formHistory = useNavigate()
 
   const dataOfForm: SubmitHandler<FieldValues> = (data, e) => {
     formHistory('/confirmation', { state: data })
-  };
+  }
 
   return (
     <Container variant='secondary'>
@@ -66,4 +66,4 @@ export function Checkout() {
       </CheckoutContente>
     </Container>
   )
-};
+}

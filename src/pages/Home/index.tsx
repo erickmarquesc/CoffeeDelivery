@@ -1,4 +1,4 @@
-import { HomeElements } from "./HomeElements";
+import { HomeElements } from './HomeElements'
 
 export function Home() {
   return (
@@ -7,5 +7,5 @@ export function Home() {
       <HomeElements.Title />
       <HomeElements.CoffeeList/>
     </HomeElements.Root>
-  );
-};
+  )
+}

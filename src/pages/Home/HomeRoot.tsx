@@ -1,6 +1,6 @@
-import { ReactNode } from "react"
-import { Container, Content } from "../../components/Containers/containers";
-import { HomeContent } from "./styles";
+import { ReactNode } from 'react'
+import { Container, Content } from '../../components/Containers/containers'
+import { HomeContent } from './styles'
 
 interface IHomeRoot {
   children: ReactNode;

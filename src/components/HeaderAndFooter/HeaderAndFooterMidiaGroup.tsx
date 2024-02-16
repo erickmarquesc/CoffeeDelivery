@@ -1,5 +1,5 @@
-import { MidiaButton } from "./MidiaButton";
-import { MidiaGroup } from "./styles";
+import { MidiaButton } from './MidiaButton'
+import { MidiaGroup } from './styles'
 
 export function HeaderAndFooterMidiaGroup() {
   return (

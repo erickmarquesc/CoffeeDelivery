@@ -1,10 +1,10 @@
-import { ReactNode } from "react";
-import { Container } from "../Containers/containers";
-import { HeaderAndFooterRootContent } from "./styles";
+import { ReactNode } from 'react'
+import { Container } from '../Containers/containers'
+import { HeaderAndFooterRootContent } from './styles'
 
 interface IHeaderAndFooterRootProps {
   children: ReactNode;
-  type: "header" | "footer";
+  type: 'header' | 'footer';
 }
 
 export function HeaderAndFooterRoot({ children, type }: IHeaderAndFooterRootProps) {

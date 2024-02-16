@@ -1,46 +1,46 @@
-import { useCart } from '../../../../contexts/ShoppingCartContext';
-import { Trash } from 'phosphor-react';
-import { toast } from 'react-toastify';
-import { useState } from 'react';
+import { useCart } from '../../../../contexts/ShoppingCartContext'
+import { Trash } from 'phosphor-react'
+import { toast } from 'react-toastify'
+import { useState } from 'react'
 import {
   CartCoffee,
   MidWrapper,
   ProductValue,
   RemoveItemButton
-} from './styles';
-import { Counter } from '../../../../components/Counter';
+} from './styles'
+import { Counter } from '../../../../components/Counter'
 interface CartItemProps {
   id: number,
   name: string,
   img: string,
   value: number,
   quantity: number,
-};
+}
 
 export function CartCard({ id, name, img, value, quantity }: CartItemProps) {
 
-  const { changeAmountOfCoffes, removeCoffee } = useCart();
-  const [totalValue, setTotalValue] = useState(value * quantity);
+  const { changeAmountOfCoffes, removeCoffee } = useCart()
+  const [totalValue, setTotalValue] = useState(value * quantity)
 
   function handleIncreaseQuantity() {
-    changeAmountOfCoffes(id, quantity + 1);
+    changeAmountOfCoffes(id, quantity + 1)
 
-    setTotalValue(totalValue + value);
-  };
+    setTotalValue(totalValue + value)
+  }
 
   function handleDecreaseQuantity() {
     if (quantity > 1) {
-      changeAmountOfCoffes(id, quantity - 1);
+      changeAmountOfCoffes(id, quantity - 1)
 
-      setTotalValue(totalValue - value);
+      setTotalValue(totalValue - value)
     } else if (quantity >= 1) {
-      toast.error('Para remover o item do carrinho clique no botão "REMOVER"');
-    };
-  };
+      toast.error('Para remover o item do carrinho clique no botão "REMOVER"')
+    }
+  }
 
   function handleRemoveCoffe() {
-    removeCoffee(id);
-  };
+    removeCoffee(id)
+  }
 
   return (
     <CartCoffee productId={id}>

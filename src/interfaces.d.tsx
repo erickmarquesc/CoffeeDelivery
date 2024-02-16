@@ -1,3 +1,3 @@
 export interface IConteinersProps{
-  variant: "primary" | "secondary"
-};
+  variant: 'primary' | 'secondary'
+}

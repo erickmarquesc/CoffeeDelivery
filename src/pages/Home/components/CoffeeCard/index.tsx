@@ -1,29 +1,29 @@
-import { Card, ShopContainer, TypeWrapper } from './styles';
-import { useCart } from '../../../../contexts/ShoppingCartContext';
-import { ShoppingCart } from 'phosphor-react';
-import { useState } from 'react';
+import { Card, ShopContainer, TypeWrapper } from './styles'
+import { useCart } from '../../../../contexts/ShoppingCartContext'
+import { ShoppingCart } from 'phosphor-react'
+import { useState } from 'react'
 
-import { converterCoin } from '../../../../utils/converterCoin';
-import { Counter } from '../../../../components/Counter';
+import { converterCoin } from '../../../../utils/converterCoin'
+import { Counter } from '../../../../components/Counter'
 
 
 
 export function CoffeeCard({ id, name, img, value, description, types }: CardItemProps) {
 
-  const { addCartItem } = useCart();
-  const [quantity, setQuantity] = useState(1);
+  const { addCartItem } = useCart()
+  const [quantity, setQuantity] = useState(1)
 
   function handleDecreaseQuantity() {
     if (quantity > 1) {
-      setQuantity(quantity - 1);
-    };
-  };
+      setQuantity(quantity - 1)
+    }
+  }
 
   function handleIncreaseQuantity() {
     if (quantity < 10) {
-      setQuantity(quantity + 1);
-    };
-  };
+      setQuantity(quantity + 1)
+    }
+  }
 
   function handleAddProduct() {
     const coffee: CardItemProps = {
@@ -34,11 +34,11 @@ export function CoffeeCard({ id, name, img, value, description, types }: CardIte
       quantity,
       description,
       types
-    };
+    }
 
-    addCartItem(coffee);
-    setQuantity(1);
-  };
+    addCartItem(coffee)
+    setQuantity(1)
+  }
 
   return (
     <Card productId={id} key={id}>
@@ -73,5 +73,5 @@ export function CoffeeCard({ id, name, img, value, description, types }: CardIte
         </button>
       </ShopContainer>
     </Card>
-  );
-};
+  )
+}

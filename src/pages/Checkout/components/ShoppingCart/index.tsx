@@ -1,30 +1,30 @@
-import { ArrowUDownLeft, ShoppingCart as ShoppingCartSVG } from 'phosphor-react';
-import { Cart, CartSection, ConfirmationButton, TotalValue } from './styles';
-import { useCart } from '../../../../contexts/ShoppingCartContext';
-import { useEffect, useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { CartCard } from '../CartCard';
+import { ArrowUDownLeft, ShoppingCart as ShoppingCartSVG } from 'phosphor-react'
+import { Cart, CartSection, ConfirmationButton, TotalValue } from './styles'
+import { useCart } from '../../../../contexts/ShoppingCartContext'
+import { useEffect, useState } from 'react'
+import { NavLink } from 'react-router-dom'
+import { CartCard } from '../CartCard'
 
 
 export function ShoppingCart() {
 
-  const [subTotalPrice, setSubTotalPrice] = useState(0);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const [subTotalPrice, setSubTotalPrice] = useState(0)
+  const [totalPrice, setTotalPrice] = useState(0)
 
-  const { ShoppingCartContextState } = useCart();
-  const cartCounter = ShoppingCartContextState.length;
+  const { ShoppingCartContextState } = useCart()
+  const cartCounter = ShoppingCartContextState.length
 
-  const deliveryFee = 3.99;
+  const deliveryFee = 3.99
 
   useEffect(() => {
     const subTotal = ShoppingCartContextState.reduce((total, item) => {
       return total + item.value * item.quantity
-    }, 0);
+    }, 0)
 
-    setSubTotalPrice(subTotal);
-    setTotalPrice(subTotal + deliveryFee);
+    setSubTotalPrice(subTotal)
+    setTotalPrice(subTotal + deliveryFee)
 
-  }, [ShoppingCartContextState]);
+  }, [ShoppingCartContextState])
 
   return (
     <CartSection>
@@ -88,5 +88,5 @@ export function ShoppingCart() {
           </>}
       </Cart>
     </CartSection >
-  );
-};
+  )
+}

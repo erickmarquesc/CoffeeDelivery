@@ -1,4 +1,4 @@
-import { LogoCoffee } from "../Logo";
+import { LogoCoffee } from '../Logo'
 
 export function HeaderAndFooterLogo() {
   return (

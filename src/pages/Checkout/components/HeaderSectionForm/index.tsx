@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
-import { HeaderSectionContainer } from "./styles";
+import { ReactNode } from 'react'
+import { HeaderSectionContainer } from './styles'
 
 interface IHeaderSectionForm {
   title: string,
   description: string,
   icon: ReactNode,
-  colorIcon?: "purple" | "yellow-dark"
+  colorIcon?: 'purple' | 'yellow-dark'
 }
 
 export function HeaderSectionForm({

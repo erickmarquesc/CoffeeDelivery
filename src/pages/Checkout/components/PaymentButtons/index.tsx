@@ -1,19 +1,19 @@
-import { Button, ButtonsContainer, PaymentMethods } from './styles';
-import { Bank, CreditCard, CurrencyDollarSimple, Money } from 'phosphor-react';
-import { useCart } from '../../../../contexts/ShoppingCartContext';
-import { useForm } from 'react-hook-form';
-import { HeaderSectionForm } from '../HeaderSectionForm';
-import { FormSection } from '../../style';
+import { Button, ButtonsContainer, PaymentMethods } from './styles'
+import { Bank, CreditCard, CurrencyDollarSimple, Money } from 'phosphor-react'
+import { useCart } from '../../../../contexts/ShoppingCartContext'
+import { useForm } from 'react-hook-form'
+import { HeaderSectionForm } from '../HeaderSectionForm'
+import { FormSection } from '../../style'
 
 export function PaymentButtons() {
 
-  const { paymentMethod, paymentMethodChange } = useCart();
-  const { register, setValue } = useForm();
+  const { paymentMethod, paymentMethodChange } = useCart()
+  const { register, setValue } = useForm()
 
   function handlePaymentMethodChange(paymentMethod: PaymentMethods) {
-    setValue('paymentMethod', paymentMethod);
-    paymentMethodChange(paymentMethod);
-  };
+    setValue('paymentMethod', paymentMethod)
+    paymentMethodChange(paymentMethod)
+  }
 
   return (
     <FormSection>
@@ -60,5 +60,5 @@ export function PaymentButtons() {
 
       </ButtonsContainer>
     </FormSection>
-  );
-};
+  )
+}

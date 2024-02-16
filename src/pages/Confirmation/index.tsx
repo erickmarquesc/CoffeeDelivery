@@ -1,15 +1,15 @@
-import { MainContent, Main, HeaderSection, TitleSection } from './styles';
-import { CurrencyDollarSimple, MapPin, Timer } from 'phosphor-react';
-import { Container, Content } from '../../components/Containers/containers';
-import illustration from '../../assets/Illustration.svg';
-import { useLocation } from 'react-router-dom';
-import { useCart } from '../../contexts/ShoppingCartContext';
+import { MainContent, Main, HeaderSection, TitleSection } from './styles'
+import { CurrencyDollarSimple, MapPin, Timer } from 'phosphor-react'
+import { Container, Content } from '../../components/Containers/containers'
+import illustration from '../../assets/Illustration.svg'
+import { useLocation } from 'react-router-dom'
+import { useCart } from '../../contexts/ShoppingCartContext'
 
 export function Confirmation() {
 
-  const history: any = useLocation();
-  const dados: FormContextProps = history?.state;
-  const {paymentMethod} = useCart();
+  const history: any = useLocation()
+  const dados: FormContextProps = history?.state
+  const {paymentMethod} = useCart()
 
   return (
     <Container variant='secondary'>
@@ -68,5 +68,5 @@ export function Confirmation() {
         </div>
       </Content>
     </Container>
-  );
-};
+  )
+}

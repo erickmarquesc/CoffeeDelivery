@@ -1,10 +1,10 @@
-import { useCart } from "../../../../contexts/ShoppingCartContext";
-import { CoffeeSectionConteiner } from "./styles";
-import { CoffeeCard } from "../CoffeeCard";
+import { useCart } from '../../../../contexts/ShoppingCartContext'
+import { CoffeeSectionConteiner } from './styles'
+import { CoffeeCard } from '../CoffeeCard'
 
 export function CoffeeList() {
 
-  const { CoffeeList } = useCart();
+  const { CoffeeList } = useCart()
 
   return (
     <CoffeeSectionConteiner>
@@ -25,5 +25,5 @@ export function CoffeeList() {
       })}
 
     </CoffeeSectionConteiner>
-  );
-};
+  )
+}

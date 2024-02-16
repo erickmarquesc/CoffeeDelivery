@@ -1,5 +1,5 @@
-import { HeaderAndFooter } from '../../components/HeaderAndFooter';
-import { Outlet } from 'react-router-dom';
+import { HeaderAndFooter } from '../../components/HeaderAndFooter'
+import { Outlet } from 'react-router-dom'
 
 export function DefaultLayout() {
   return (
@@ -17,5 +17,5 @@ export function DefaultLayout() {
         <HeaderAndFooter.LocaleAndCart/>
       </HeaderAndFooter.Root>
     </div>
-  );
-};
+  )
+}

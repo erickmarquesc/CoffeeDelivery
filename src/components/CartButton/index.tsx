@@ -1,19 +1,19 @@
-import { useCart } from '../../contexts/ShoppingCartContext';
-import { ShoppingCart } from "phosphor-react";
-import { NavLink } from "react-router-dom";
-import { CartButton } from "./styles";
+import { useCart } from '../../contexts/ShoppingCartContext'
+import { ShoppingCart } from 'phosphor-react'
+import { NavLink } from 'react-router-dom'
+import { CartButton } from './styles'
 
 export function ShoppingCartButton() {
-  const { ShoppingCartContextState } = useCart();
+  const { ShoppingCartContextState } = useCart()
   
-  const cartCounter = ShoppingCartContextState.length;
-  const isActiveCart = cartCounter > 0 ? true : false;
+  const cartCounter = ShoppingCartContextState.length
+  const isActiveCart = cartCounter > 0 ? true : false
   
   return (
     <NavLink
       to={
         isActiveCart
-          ? "/checkout"
+          ? '/checkout'
           : ''
       }
     >
@@ -30,5 +30,5 @@ export function ShoppingCartButton() {
         )}
       </CartButton>
     </NavLink>
-  );
-};
+  )
+}

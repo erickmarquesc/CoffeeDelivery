@@ -1,6 +1,6 @@
-import { HeroSectionConteiner, ServicesHero, TitleHeroContent } from "./styles";
-import { Package, Coffee, ShoppingCart, Timer } from "phosphor-react";
-import marketingImg from "../../assets/Imagem.svg";
+import { HeroSectionConteiner, ServicesHero, TitleHeroContent } from './styles'
+import { Package, Coffee, ShoppingCart, Timer } from 'phosphor-react'
+import marketingImg from '../../assets/Imagem.svg'
 
 export function HeroSection() {
   return (
@@ -52,5 +52,5 @@ export function HeroSection() {
 
       <img className="img" src={marketingImg} alt="" />
     </HeroSectionConteiner>
-  );
-};
+  )
+}

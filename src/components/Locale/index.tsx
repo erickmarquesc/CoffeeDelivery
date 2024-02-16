@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { MapPin } from "phosphor-react";
-import { Locale } from "./styles";
+import React, { useState, useEffect } from 'react'
+import { MapPin } from 'phosphor-react'
+import { Locale } from './styles'
 
 export function LocaleMap() {
-  const [city, setCity] = useState("");
-  const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined);
+  const [city, setCity] = useState('')
+  const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined)
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -13,47 +13,47 @@ export function LocaleMap() {
           try {
             const response = await fetch(
               `https://nominatim.openstreetmap.org/reverse?format=json&lat=${position.coords.latitude}&lon=${position.coords.longitude}`
-            );
+            )
 
             if (!response.ok) {
-              throw new Error("Erro ao obter dados de geolocalização");
+              throw new Error('Erro ao obter dados de geolocalização')
             }
 
-            const data = await response.json();
-            const city = data.address.city;
+            const data = await response.json()
+            const city = data.address.city
 
             if (city) {
-              setCity(city);
+              setCity(city)
             } else {
-              throw new Error("Cidade não encontrada nos dados de geolocalização");
+              throw new Error('Cidade não encontrada nos dados de geolocalização')
             }
           } catch (error) {
             if (error instanceof Error) {
-              setErrorMessage("Erro ao obter a cidade: " + error.message);
+              setErrorMessage('Erro ao obter a cidade: ' + error.message)
             } else {
-              setErrorMessage("Erro desconhecido ao obter a cidade");
+              setErrorMessage('Erro desconhecido ao obter a cidade')
             }
           }
         },
         function (error) {
           if (error instanceof Error) {
-            setErrorMessage("Erro ao obter a localização: " + error.message);
+            setErrorMessage('Erro ao obter a localização: ' + error.message)
           } else {
-            setErrorMessage("Erro desconhecido ao obter a localização");
+            setErrorMessage('Erro desconhecido ao obter a localização')
           }
         }
-      );
+      )
     } else {
-      setErrorMessage("Geolocalização não é suportada pelo seu navegador.");
+      setErrorMessage('Geolocalização não é suportada pelo seu navegador.')
     }
-  }, []);
+  }, [])
 
   return (
     <Locale>
       <MapPin size={24} weight="fill" />
       {errorMessage
         ? <p>{errorMessage}</p>
-        : <p>{city ? city : "Obtendo localização..."}</p>}
+        : <p>{city ? city : 'Obtendo localização...'}</p>}
     </Locale>
-  );
+  )
 }
