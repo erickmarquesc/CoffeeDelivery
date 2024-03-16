@@ -9,7 +9,7 @@ import {
   RemoveItemButton
 } from './styles'
 import { Counter } from '../../../../components/Counter'
-interface CartItemProps {
+interface ICartItemProps {
   id: number,
   name: string,
   img: string,
@@ -17,7 +17,7 @@ interface CartItemProps {
   quantity: number,
 }
 
-export function CartCard({ id, name, img, value, quantity }: CartItemProps) {
+export function CartCard({ id, name, img, value, quantity }: ICartItemProps) {
 
   const { changeAmountOfCoffes, removeCoffee } = useCart()
   const [totalValue, setTotalValue] = useState(value * quantity)

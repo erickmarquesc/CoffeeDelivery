@@ -4,7 +4,7 @@ interface CartItemProps {
   img: string,
   value: number,
   quantity: number,
-};
+}
 
 interface FormContextProps {
   complemento: string,
@@ -14,7 +14,7 @@ interface FormContextProps {
   numero: string,
   rua: string,
   uf: string,
-};
+}
 
 interface ShoppingContextProps {
   CoffeeList: {
@@ -35,11 +35,11 @@ interface ShoppingContextProps {
   removeCoffee: (id: number) => void
   paymentMethod: PaymentMethods
   paymentMethodChange: (method: PaymentMethods) => void
-};
+}
 
 interface ShoppingCartContextProps {
   children: ReactNode,
-};
+}
 
 interface CardItemProps {
   id: number,
@@ -49,7 +49,7 @@ interface CardItemProps {
   description: string,
   types: string[],
   quantity: number,
-};
+}
 
 interface FormContextProps {
   complemento: string,
@@ -60,4 +60,4 @@ interface FormContextProps {
   rua: string,
   uf: string,
   paymentMethod: string,
-};
+}
